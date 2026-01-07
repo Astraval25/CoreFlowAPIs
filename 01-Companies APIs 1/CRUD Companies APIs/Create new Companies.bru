@@ -1,0 +1,31 @@
+meta {
+  name: Create new Companies
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{astraval.com}}/api/companies
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+body:json {
+  {
+    "companyName": "IoTEcoTech Lab",
+    "industry": "IT",
+    "pan": "ABCDE1234F",
+    "gstNo": "29ABCDE1234F1Z5",
+    "hsnCode": "998314",
+    "shortName": "IET"
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+}

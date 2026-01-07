@@ -1,0 +1,31 @@
+meta {
+  name: Deactivate company
+  type: http
+  seq: 5
+}
+
+patch {
+  url: {{astraval.com}}/api/companies/3/deactivate
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+body:json {
+  {
+    "companyName": "Advanced Tech Solutions Pvt Ltd",
+    "industry": "Software Development",
+    "pan": "ABCDE1234F",
+    "gstNo": "29ABCDE1234F1Z5",
+    "hsnCode": "998314",
+    "shortName": "AdvTechSol"
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+}

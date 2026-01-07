@@ -1,0 +1,68 @@
+meta {
+  name: Create Item
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{astraval.com}}/api/companies/2/items
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+body:json {
+  {
+    "itemName": "Item",
+    "itemCode": "WBH-001",
+    "description": "Premium quality wireless headphones with noise cancellation",
+    "category": "Electronics",
+    "unit": "PIECE",
+    "sellingPrice": 2999.00,
+    "itemType": "GOODS",
+    "hsnCode": "85183000",
+    "taxRate": 18.00,
+    "stockQuantity": 50
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: Service Example
+  
+  request: {
+    url: {{astraval.com}}/api/companies/2/items
+    method: POST
+    mode: json
+    body:json: {
+      {
+        "itemName": "Item",
+        "itemCode": "SDS-001",
+        "description": "Custom software development service",
+        "category": "IT Services",
+        "unit": "PIECE",
+        "sellingPrice": 50000.00,
+        "itemType": "SERVICE",
+        "hsnCode": "998314",
+        "taxRate": 18.00
+      }
+      
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

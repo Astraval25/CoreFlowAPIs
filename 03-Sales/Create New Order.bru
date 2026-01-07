@@ -1,0 +1,37 @@
+meta {
+  name: Create New Order
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{astraval.com}}/api/companies/3/orders
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+body:json {
+  {
+      "customId":1,
+      "deliveryCharge":0,
+      "OrderItems":[
+          {
+              "itemId":1,
+              "quantity":2.0,
+              "updatedPrice":17.0
+          },{
+              "itemId":1,
+              "quantity":3.0,
+              "updatedPrice":31.0
+          }
+      ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

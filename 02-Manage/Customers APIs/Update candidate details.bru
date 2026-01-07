@@ -1,0 +1,126 @@
+meta {
+  name: Update candidate details
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{astraval.com}}/api/companies/1/customers
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: full update
+  
+  request: {
+    url: {{astraval.com}}/api/companies/2/customers/2
+    method: PUT
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+        "customerName": "ABC Corporation",
+        "displayName": "ABC Corp",
+        "email": "contact@abccorp.com",
+        "phone": "+1-555-0123",
+        "lang": "en",
+        "pan": "ABCDE1234F",
+        "gst": "29ABCDE1234F1Z5",
+        "advanceAmount": 5000.00,
+        "sameAsBillingAddress": false,
+        "billingAddress": {
+          "attentionName": "John Doe",
+          "country": "India",
+          "line1": "123 Business Street",
+          "line2": "Suite 456",
+          "city": "Mumbai",
+          "state": "Maharashtra",
+          "pincode": 400001,
+          "phone": "+91-22-12345678",
+          "email": "billing@abccorp.com"
+        },
+        "shippingAddress": {
+          "attentionName": "Jane Smith",
+          "country": "India",
+          "line1": "789 Warehouse Road",
+          "line2": "Building B",
+          "city": "Pune",
+          "state": "Maharashtra",
+          "pincode": 411001,
+          "phone": "+91-20-87654321",
+          "email": "shipping@abccorp.com"
+        }
+      }
+      
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: shipping address is same as billing address
+  
+  request: {
+    url: {{astraval.com}}/api/companies/1/customers/3
+    method: PUT
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+        "customerName": "ABC Corporation",
+        "displayName": "ABC Corp",
+        "email": "contact@abccorp.com",
+        "phone": "+1-555-0123",
+        "lang": "en",
+        "pan": "ABCDE1234F",
+        "gst": "29ABCDE1234F1Z5",
+        "advanceAmount": 5000.00,
+        "sameAsBillingAddress": true,
+        "billingAddress": {
+          "attentionName": "John Doe",
+          "country": "India",
+          "line1": "123 Business Street",
+          "line2": "Suite 456",
+          "city": "Mumbai",
+          "state": "Maharashtra",
+          "pincode": 400001,
+          "phone": "+91-22-12345678",
+          "email": "billing@abccorp.com"
+        }
+      }
+      
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

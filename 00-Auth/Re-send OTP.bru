@@ -1,0 +1,22 @@
+meta {
+  name: Re-send OTP
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{astraval.com}} /api/auth/send-otp
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "email": "karthikeyan.kac@gmail.com"
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+}

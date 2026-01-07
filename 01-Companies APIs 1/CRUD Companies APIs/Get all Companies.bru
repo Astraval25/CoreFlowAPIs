@@ -1,0 +1,19 @@
+meta {
+  name: Get all Companies
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{astraval.com}}/api/companies
+  body: text
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+}

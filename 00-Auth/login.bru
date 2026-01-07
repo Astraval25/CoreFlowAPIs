@@ -1,0 +1,130 @@
+meta {
+  name: login
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{astraval.com}}/api/auth/login
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "email":"admin@astraval.com",
+      "password":"test2025@TEST"
+  }
+}
+
+vars:pre-request {
+  astraval.com: http://astraval.com:8085
+}
+
+script:post-response {
+  // Extract token from response and set as global variable if present
+  let jsonData;
+  try {
+      jsonData = res.getBody();
+  } catch (e) {
+      jsonData = {};
+  }
+  
+  if (
+      jsonData &&
+      jsonData.responseData &&
+      typeof jsonData.responseData.token === 'string' &&
+      jsonData.responseData.token.length > 0
+  ) {
+      bru.setGlobalEnvVar('adminToken', jsonData.responseData.token);
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+example {
+  name: rahul login
+  
+  request: {
+    url: {{astraval.com}}/api/auth/login
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "email":"rahul63794@gmail.com",
+          "password":"Test@123"
+      }
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: karthikeyan Login
+  
+  request: {
+    url: {{astraval.com}}/api/auth/login
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "email":"admin@astraval.com",
+          "password":"test2025@TEST"
+      }
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Vino login
+  
+  request: {
+    url: {{astraval.com}}/api/auth/login
+    method: POST
+    mode: none
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

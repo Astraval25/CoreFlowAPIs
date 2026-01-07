@@ -1,0 +1,41 @@
+meta {
+  name: login_1
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{astraval.com}}/api/auth/login
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "email":"vino.vaishnavi@astraval.com",
+      "password":"Vino@1410"
+  }
+}
+
+script:post-response {
+  // Extract token from response and set as global variable if present
+  let jsonData;
+  try {
+      jsonData = res.getBody();
+  } catch (e) {
+      jsonData = {};
+  }
+  
+  if (
+      jsonData &&
+      jsonData.responseData &&
+      typeof jsonData.responseData.token === 'string' &&
+      jsonData.responseData.token.length > 0
+  ) {
+      bru.setGlobalEnvVar('adminToken', jsonData.responseData.token);
+  }
+}
+
+settings {
+  encodeUrl: true
+}

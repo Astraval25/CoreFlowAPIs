@@ -1,0 +1,19 @@
+meta {
+  name: Get all customers
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{astraval.com}}/api/companies/customers
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+}

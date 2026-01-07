@@ -1,0 +1,23 @@
+meta {
+  name: Get vendor detail by vendor Id and company id
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{astraval.com}}/api/companies/4/vendors/3
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  This API check the both company Id and Customer Id both want to match
+}

@@ -1,0 +1,21 @@
+meta {
+  name: refresh Token
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{astraval.com}}/api/auth/refresh-token
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "refreshToken":"{{vault:json-web-token}}"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

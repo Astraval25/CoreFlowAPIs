@@ -1,0 +1,19 @@
+meta {
+  name: Get item detail by item id and company id
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{astraval.com}}/api/companies/2/items/1
+  body: text
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+}

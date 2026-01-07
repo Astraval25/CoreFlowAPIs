@@ -1,0 +1,19 @@
+meta {
+  name: Activate item
+  type: http
+  seq: 7
+}
+
+patch {
+  url: {{astraval.com}}/api/companies/2/items/1/activate
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+}

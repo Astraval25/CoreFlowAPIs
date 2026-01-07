@@ -1,0 +1,100 @@
+meta {
+  name: create new customer Copy
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{astraval.com}}/api/admin/companies/4/customers
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: Minimal Request (only required fields)
+  
+  request: {
+    url: {{astraval.com}}/api/companies/4/customers
+    method: POST
+    mode: json
+    body:json: {
+      {
+        "customerName": "Selvi",
+        "displayName": "Ms. Selvi"
+      }
+      
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Full Request with addresses
+  
+  request: {
+    url: {{astraval.com}}/api/companies/4/customers
+    method: POST
+    mode: json
+    body:json: {
+      {
+        "customerName": "Arun",
+        "displayName": "Arun E",
+        "email": "arun.e@mailinator.com",
+        "phone": "1234567890",
+        "lang": "en",
+        "pan": "ABCDE1234F",
+        "gst": "29ABCDE1234F1Z5",
+        "advanceAmount": 1500.00,
+        "sameAsBillingAddress": false,
+        "billingAddress": {
+          "attentionName": "arun e",
+          "country": "India",
+          "line1": "123 Main Street",
+          "line2": "Apt 4B",
+          "city": "Chennai",
+          "state": "TamilNadu",
+          "pincode": 600001,
+          "phone": "+1234567890",
+          "email": "arun.e@example.com"
+        },
+        "shippingAddress": {
+          "attentionName": "arun e",
+          "country": "India",
+          "line1": "456 main Avenue",
+          "line2": "Streat 10",
+          "city": "Delhi",
+          "state": "Delhi",
+          "pincode": 110001,
+          "phone": "+1234567890",
+          "email": "arune@example.com"
+        }
+      }
+      
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

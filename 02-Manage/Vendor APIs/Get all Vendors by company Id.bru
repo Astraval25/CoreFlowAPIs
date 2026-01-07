@@ -1,0 +1,19 @@
+meta {
+  name: Get all Vendors by company Id
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{astraval.com}}/api/companies/4/vendors
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+}

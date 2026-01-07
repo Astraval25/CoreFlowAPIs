@@ -1,0 +1,34 @@
+meta {
+  name: Get all active items by company id
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{astraval.com}}/api/companies/2/items/active
+  body: text
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+body:text {
+  {
+    "attentionName": "Karthikeyan",
+    "country": "India",
+    "line1": "Updated Street Address",
+    "line2": "Updated Apartment",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "pincode": 400001,
+    "phone": "+1234567890",
+    "email": "updated@email.com"
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+}
