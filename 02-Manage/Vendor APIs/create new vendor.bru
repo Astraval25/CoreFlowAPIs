@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: {{astraval.com}}/api/admin/companies/1/vendors
+  url: {{astraval.com}}/api/companies/1/vendors
   body: json
   auth: bearer
 }
@@ -14,8 +14,46 @@ auth:bearer {
   token: {{adminToken}}
 }
 
+body:json {
+  {
+    "vendorName": "Ramesh",
+    "displayName": "Ramesh E",
+    "email": "ramesh.e@mailinator.com",
+    "phone": "1234567890",
+    "lang": "en",
+    "pan": "ABCDE1234F",
+    "gst": "29ABCDE1234F1Z5",
+    "advanceAmount": 1500.00,
+    "sameAsBillingAddress": false,
+    "billingAddress": {
+      "attentionName": "ramesh e",
+      "country": "India",
+      "line1": "123 Main Street",
+      "line2": "Apt 4B",
+      "city": "Chennai",
+      "state": "TamilNadu",
+      "pincode": 600001,
+      "phone": "+1234567890",
+      "email": "ramesh.e@example.com"
+    },
+    "shippingAddress": {
+      "attentionName": "ramesh e",
+      "country": "India",
+      "line1": "456 main Avenue",
+      "line2": "Streat 10",
+      "city": "Delhi",
+      "state": "Delhi",
+      "pincode": 110001,
+      "phone": "+1234567890",
+      "email": "ramesh@example.com"
+    }
+  }
+        
+}
+
 settings {
   encodeUrl: true
+  timeout: 0
 }
 
 example {
@@ -30,11 +68,16 @@ example {
         "vendorName": "Jaya",
         "displayName": "Ms. Jaya"
       }
-      
+            
     }
   }
   
   response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
     body: {
       type: text
       content: '''
@@ -53,9 +96,9 @@ example {
     mode: json
     body:json: {
       {
-        "vendorName": "Arun",
-        "displayName": "Arun E",
-        "email": "arun.e@mailinator.com",
+        "vendorName": "Ramesh",
+        "displayName": "Ramesh E",
+        "email": "ramesh.e@mailinator.com",
         "phone": "1234567890",
         "lang": "en",
         "pan": "ABCDE1234F",
@@ -63,7 +106,7 @@ example {
         "advanceAmount": 1500.00,
         "sameAsBillingAddress": false,
         "billingAddress": {
-          "attentionName": "arun e",
+          "attentionName": "ramesh e",
           "country": "India",
           "line1": "123 Main Street",
           "line2": "Apt 4B",
@@ -71,10 +114,10 @@ example {
           "state": "TamilNadu",
           "pincode": 600001,
           "phone": "+1234567890",
-          "email": "arun.e@example.com"
+          "email": "ramesh.e@example.com"
         },
         "shippingAddress": {
-          "attentionName": "arun e",
+          "attentionName": "ramesh e",
           "country": "India",
           "line1": "456 main Avenue",
           "line2": "Streat 10",
@@ -82,14 +125,19 @@ example {
           "state": "Delhi",
           "pincode": 110001,
           "phone": "+1234567890",
-          "email": "arune@example.com"
+          "email": "ramesh@example.com"
         }
       }
-      
+            
     }
   }
   
   response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
     body: {
       type: text
       content: '''

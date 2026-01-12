@@ -5,8 +5,8 @@ meta {
 }
 
 post {
-  url: {{astraval.com}}/api/companies/2/items
-  body: json
+  url: {{astraval.com}}/api/companies/3/items
+  body: multipartForm
   auth: bearer
 }
 
@@ -16,26 +16,50 @@ auth:bearer {
 
 body:json {
   {
-    "itemName": "Item",
-    "itemCode": "WBH-001",
-    "description": "Premium quality wireless headphones with noise cancellation",
-    "category": "Electronics",
-    "unit": "PIECE",
-    "sellingPrice": 2999.00,
+    "itemName": "Laptop Dell 13",
+    "itemDisplayName": "Dell 13 Ultrabook",
     "itemType": "GOODS",
-    "hsnCode": "85183000",
+    "unit": "PIECE",
+    "salesDescription": "High-performance ultrabook for business use",
+    "salesPrice": 85000.00,
+    "preferredCustomerId": 7,
+    "purchaseDescription": "Dell XPS 13 with Intel i7 processor",
+    "purchasePrice": 75000.00,
+    "preferredVendorId": 4,
+    "hsnCode": "84713000",
     "taxRate": 18.00,
-    "stockQuantity": 50
+    "stockQuantity": 10.00
   }
   
 }
 
+body:multipart-form {
+  item: '''
+    {
+      "itemName": "Premium Laptop",
+      "itemDisplayName": "MacBook Pro 16-inch",
+      "itemType": "GOODS",
+      "unit": "KG",
+      "salesDescription": "High-performance laptop for professionals",
+      "salesPrice": 2500.00,
+      "preferredCustomerId": 2,
+      "purchaseDescription": "Bulk purchase from supplier",
+      "purchasePrice": 2000.00,
+      "preferredVendorId": 2,
+      "hsnCode": "8471",
+      "taxRate": 18.0
+    }
+  ''' @contentType(Text)
+  file: @file(Files\item2.jpg) @contentType(File)
+}
+
 settings {
   encodeUrl: true
+  timeout: 0
 }
 
 example {
-  name: Service Example
+  name: Mandatory fields
   
   request: {
     url: {{astraval.com}}/api/companies/2/items
@@ -43,21 +67,62 @@ example {
     mode: json
     body:json: {
       {
-        "itemName": "Item",
-        "itemCode": "SDS-001",
-        "description": "Custom software development service",
-        "category": "IT Services",
-        "unit": "PIECE",
-        "sellingPrice": 50000.00,
-        "itemType": "SERVICE",
-        "hsnCode": "998314",
-        "taxRate": 18.00
+        "itemName": "Laptop",
+        "itemDisplayName": "Asur Laptop",
+        "itemType": "GOODS",
+        "salesPrice": 50000.00
       }
-      
+                                                                
     }
   }
   
   response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Full information
+  
+  request: {
+    url: {{astraval.com}}/api/companies/2/items
+    method: POST
+    mode: json
+    body:json: {
+      {
+        "itemName": "Laptop Dell 13",
+        "itemDisplayName": "Dell 13 Ultrabook",
+        "itemType": "GOODS",
+        "unit": "PIECE",
+        "salesDescription": "High-performance ultrabook for business use",
+        "salesPrice": 85000.00,
+        "preferredCustomerId": 7,
+        "purchaseDescription": "Dell XPS 13 with Intel i7 processor",
+        "purchasePrice": 75000.00,
+        "preferredVendorId": 4,
+        "hsnCode": "84713000",
+        "taxRate": 18.00
+      }
+                            
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
     body: {
       type: text
       content: '''

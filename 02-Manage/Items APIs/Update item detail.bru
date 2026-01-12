@@ -5,7 +5,7 @@ meta {
 }
 
 put {
-  url: {{astraval.com}}/api/companies/2/items/1
+  url: {{astraval.com}}/api/companies/2/items/12
   body: json
   auth: bearer
 }
@@ -16,20 +16,12 @@ auth:bearer {
 
 body:json {
   {
-    "itemName": "Premium Wireless Bluetooth Headphones",
-    "itemCode": "WBH-001-PRO",
-    "description": "Premium quality wireless headphones with advanced noise cancellation",
-    "category": "Electronics",
-    "unit": "PIECE",
-    "sellingPrice": 3499.00,
-    "itemType": "GOODS",
-    "hsnCode": "85183000",
-    "taxRate": 18.00,
-    "stockQuantity": 75
+  "purchasePrice": 75000.00
   }
   
 }
 
 settings {
   encodeUrl: true
+  timeout: 0
 }

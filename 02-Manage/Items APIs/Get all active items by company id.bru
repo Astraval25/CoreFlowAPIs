@@ -5,8 +5,8 @@ meta {
 }
 
 get {
-  url: {{astraval.com}}/api/companies/2/items/active
-  body: text
+  url: {{astraval.com}}/api/companies/3/items/active
+  body: multipartForm
   auth: bearer
 }
 
@@ -14,21 +14,7 @@ auth:bearer {
   token: {{adminToken}}
 }
 
-body:text {
-  {
-    "attentionName": "Karthikeyan",
-    "country": "India",
-    "line1": "Updated Street Address",
-    "line2": "Updated Apartment",
-    "city": "Mumbai",
-    "state": "Maharashtra",
-    "pincode": 400001,
-    "phone": "+1234567890",
-    "email": "updated@email.com"
-  }
-  
-}
-
 settings {
   encodeUrl: true
+  timeout: 0
 }
