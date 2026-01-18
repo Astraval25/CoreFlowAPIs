@@ -17,22 +17,22 @@ auth:bearer {
 body:json {
   {
     "customerId": 2,
-    "taxAmount": 1800.0,
-    "discountAmount": 500.0,
+    "taxAmount": 8.0,
+    "discountAmount": 10,
     "deliveryCharge": 50.0,
     "hasBill": true,
     "orderItems": [
       {
-        "itemId": 13,
+        "itemId": 3,
         "itemDescription": "Premium quality product",
         "quantity": 2.0,
-        "updatedPrice": 14500.0
+        "updatedPrice": 10.0
       },
       {
-        "itemId": 12,
+        "itemId": 4,
         "itemDescription": "Standard service",
         "quantity": 1.0,
-        "updatedPrice": 80000.0
+        "updatedPrice": 10.0
       }
     ]
   }
@@ -64,7 +64,55 @@ example {
           }
         ]
       }
-              
+                                      
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Full Version
+  
+  request: {
+    url: {{astraval.com}}/api/companies/3/orders
+    method: POST
+    mode: json
+    body:json: {
+      {
+        "customerId": 2,
+        "taxAmount": 8.0,
+        "discountAmount": 10,
+        "deliveryCharge": 50.0,
+        "hasBill": true,
+        "orderItems": [
+          {
+            "itemId": 3,
+            "itemDescription": "Premium quality product",
+            "quantity": 2.0,
+            "updatedPrice": 10.0
+          },
+          {
+            "itemId": 4,
+            "itemDescription": "Standard service",
+            "quantity": 1.0,
+            "updatedPrice": 10.0
+          }
+        ]
+      }
+          
     }
   }
   
