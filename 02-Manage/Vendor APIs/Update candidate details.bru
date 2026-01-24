@@ -16,6 +16,7 @@ auth:bearer {
 
 settings {
   encodeUrl: true
+  timeout: 0
 }
 
 example {
@@ -38,7 +39,7 @@ example {
         "lang": "en",
         "pan": "ABCDE1234F",
         "gst": "29ABCDE1234F1Z5",
-        "advanceAmount": 5000.00,
+        "dueAmount": 5000.00,
         "sameAsBillingAddress": false,
         "billingAddress": {
           "attentionName": "John Doe",
@@ -63,11 +64,16 @@ example {
           "email": "shipping@abccorp.com"
         }
       }
-      
+            
     }
   }
   
   response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
     body: {
       type: text
       content: '''
@@ -97,7 +103,7 @@ example {
         "lang": "en",
         "pan": "ABCDE1234F",
         "gst": "29ABCDE1234F1Z5",
-        "advanceAmount": 5000.00,
+        "dueAmount": 5000.00,
         "sameAsBillingAddress": true,
         "billingAddress": {
           "attentionName": "John Doe",
@@ -111,11 +117,16 @@ example {
           "email": "billing@abccorp.com"
         }
       }
-      
+            
     }
   }
   
   response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
     body: {
       type: text
       content: '''
@@ -145,7 +156,7 @@ example {
         "lang": "en",
         "pan": "ABCDE1234F",
         "gst": "29ABCDE1234F1Z5",
-        "advanceAmount": 5000.00,
+        "dueAmount": 5000.00,
         "sameAsBillingAddress": false,
         "billingAddress": {
           "attentionName": "John Doe",
@@ -170,11 +181,16 @@ example {
           "email": "billing@abccorp.com"
         }
       }
-      
+            
     }
   }
   
   response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
     body: {
       type: text
       content: '''

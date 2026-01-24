@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: {{astraval.com}}/api/companies/3/orders
+  url: {{astraval.com}}/api/companies/3/sales/orders
   body: json
   auth: bearer
 }
@@ -45,7 +45,7 @@ settings {
 }
 
 example {
-  name: Mandatory fields{   "customerId": 1,   "deliveryCharge": 50.0,   "hasBill": true,   "orderItems": [     {       "itemId": 1,       "quantity": 2.0,       "updatedPrice": 100.0     }   ] }
+  name: Mandatory fields
   
   request: {
     url: {{astraval.com}}/api/companies/3/orders
@@ -64,7 +64,7 @@ example {
           }
         ]
       }
-                                      
+                                          
     }
   }
   
@@ -112,7 +112,7 @@ example {
           }
         ]
       }
-          
+              
     }
   }
   

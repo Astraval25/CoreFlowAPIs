@@ -1,11 +1,11 @@
 meta {
-  name: List All Order by Company Id
+  name: Deactivate Order by Order id
   type: http
-  seq: 2
+  seq: 6
 }
 
-get {
-  url: {{astraval.com}}/api/companies/3/sales/orders
+put {
+  url: {{astraval.com}}/api/companies/3/sales/orders/7/deactivate
   body: none
   auth: bearer
 }
