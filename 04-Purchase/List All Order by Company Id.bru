@@ -1,11 +1,11 @@
 meta {
-  name: Get all Vendors by company Id
+  name: List All Order by Company Id
   type: http
-  seq: 5
+  seq: 3
 }
 
 get {
-  url: {{astraval.com}}/api/companies/{{companyId}}/vendors
+  url: {{astraval.com}}/api/companies/{{companyId}}/purchase/orders
   body: none
   auth: bearer
 }

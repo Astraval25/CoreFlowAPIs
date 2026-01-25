@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: {{astraval.com}}/api/companies/4/customers
+  url: {{astraval.com}}/api/companies/{{companyId}}/customers
   body: json
   auth: bearer
 }
@@ -60,7 +60,7 @@ example {
   name: Minimal Request (only required fields)
   
   request: {
-    url: {{astraval.com}}/api/companies/4/customers
+    url: {{astraval.com}}/api/companies/{{companyId}}/customers
     method: POST
     mode: json
     body:json: {
@@ -68,7 +68,7 @@ example {
         "customerName": "Selvi",
         "displayName": "Ms. Selvi"
       }
-                
+                      
     }
   }
   
@@ -91,7 +91,7 @@ example {
   name: Full Request with addresses
   
   request: {
-    url: {{astraval.com}}/api/companies/4/customers
+    url: {{astraval.com}}/api/companies/{{companyId}}/customers
     method: POST
     mode: json
     body:json: {
@@ -128,7 +128,7 @@ example {
           "email": "arune@example.com"
         }
       }
-                
+                      
     }
   }
   

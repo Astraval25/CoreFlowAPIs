@@ -1,11 +1,11 @@
 meta {
-  name: Create New Order
+  name: Create New Sales Order
   type: http
   seq: 2
 }
 
 post {
-  url: {{astraval.com}}/api/companies/3/sales/orders
+  url: {{astraval.com}}/api/companies/{{companyId}}/sales/orders
   body: json
   auth: bearer
 }
@@ -16,25 +16,30 @@ auth:bearer {
 
 body:json {
   {
-    "customerId": 2,
-    "taxAmount": 8.0,
-    "discountAmount": 10,
+    "customerId": 4,
+    "taxAmount": 0.0,
+    "discountAmount": 0,
     "deliveryCharge": 50.0,
-    "hasBill": true,
+    "hasBill": false,
     "orderItems": [
       {
-        "itemId": 3,
-        "itemDescription": "Premium quality product",
-        "quantity": 2.0,
-        "updatedPrice": 10.0
-      },
-      {
-        "itemId": 4,
-        "itemDescription": "Standard service",
-        "quantity": 1.0,
-        "updatedPrice": 10.0
+        "itemId": 15,
+        "itemDescription": "Summer Offer",
+        "quantity": 2,
+        "updatedPrice": 100
       }
     ]
+  }
+  
+}
+
+script:post-response {
+  // Bruno → Tests
+  const jsonData = res.getBody();
+  
+  if (jsonData?.responseData?.orderId) {
+    // Folder-only scope
+    bru.setVar("orderId", jsonData.responseData.orderId, "folder");
   }
   
 }
@@ -64,7 +69,7 @@ example {
           }
         ]
       }
-                                            
+                                                                
     }
   }
   
@@ -112,7 +117,7 @@ example {
           }
         ]
       }
-                
+                                    
     }
   }
   

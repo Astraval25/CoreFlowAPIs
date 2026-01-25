@@ -1,12 +1,12 @@
 meta {
-  name: Activate item
+  name: Delete Order by Order id
   type: http
-  seq: 7
+  seq: 5
 }
 
-patch {
-  url: {{astraval.com}}/api/companies/{{companyId}}/items/1/activate
-  body: json
+delete {
+  url: {{astraval.com}}/api/companies/{{companyId}}/orders/0
+  body: none
   auth: bearer
 }
 

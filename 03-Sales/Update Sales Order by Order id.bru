@@ -1,0 +1,81 @@
+meta {
+  name: Update Sales Order by Order id
+  type: http
+  seq: 6
+}
+
+put {
+  url: {{astraval.com}}/api/companies/{{companyId}}/sales/orders/{{orderId}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+body:json {
+  {
+    "customerId": 4,
+    "taxAmount": 0.0,
+    "discountAmount": 0,
+    "deliveryCharge": 50.0,
+    "hasBill": false,
+    "orderItems": [
+      {
+        "itemId": 15,
+        "itemDescription": "Summer Offer",
+        "quantity": 3,
+        "updatedPrice": 105
+      }
+    ]
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+example {
+  name: Full Update
+  
+  request: {
+    url: {{astraval.com}}/api/companies/{{companyId}}/sales/orders/{{orderId}}
+    method: PUT
+    mode: json
+    body:json: {
+      {
+        "customerId": 4,
+        "taxAmount": 0.0,
+        "discountAmount": 0,
+        "deliveryCharge": 50.0,
+        "hasBill": false,
+        "orderItems": [
+          {
+            "itemId": 15,
+            "itemDescription": "Summer Offer",
+            "quantity": 3,
+            "updatedPrice": 105
+          }
+        ]
+      }
+      
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

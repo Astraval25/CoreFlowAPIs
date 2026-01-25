@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: {{astraval.com}}/api/companies/3/items
+  url: {{astraval.com}}/api/companies/{{companyId}}/items
   body: multipartForm
   auth: bearer
 }
@@ -36,15 +36,11 @@ body:json {
 body:multipart-form {
   item: '''
     {
-      "itemName": "Premium Laptop",
+      "itemName": "Pro Laptop",
       "itemType": "GOODS",
       "unit": "KG",
-      "salesDescription": "High-performance laptop for professionals",
-      "salesPrice": 2500.00,
-      "preferredCustomerId": 2,
-      "purchaseDescription": "Bulk purchase from supplier",
-      "purchasePrice": 2000.00,
-      "preferredVendorId": 2,
+      "salesDescription": "laptop for Development",
+      "salesPrice": 250.00,
       "hsnCode": "8471",
       "taxRate": 18.0
     }
@@ -61,17 +57,14 @@ example {
   name: Mandatory fields
   
   request: {
-    url: {{astraval.com}}/api/companies/2/items
+    url: {{astraval.com}}/api/companies/{{companyId}}/items
     method: POST
     mode: json
     body:json: {
       {
-        "itemName": "Laptop",
-        "itemDisplayName": "Asur Laptop",
-        "itemType": "GOODS",
-        "salesPrice": 50000.00
+        "itemName": "Laptop"
       }
-                                                                  
+                                                                                  
     }
   }
   
@@ -94,13 +87,12 @@ example {
   name: Full information
   
   request: {
-    url: {{astraval.com}}/api/companies/2/items
+    url: {{astraval.com}}/api/companies/{{companyId}}/items
     method: POST
     mode: json
     body:json: {
       {
         "itemName": "Laptop Dell 13",
-        "itemDisplayName": "Dell 13 Ultrabook",
         "itemType": "GOODS",
         "unit": "PIECE",
         "salesDescription": "High-performance ultrabook for business use",
@@ -112,7 +104,7 @@ example {
         "hsnCode": "84713000",
         "taxRate": 18.00
       }
-                              
+                                              
     }
   }
   

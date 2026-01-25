@@ -5,7 +5,7 @@ meta {
 }
 
 put {
-  url: {{astraval.com}}/api/companies/1/customers
+  url: {{astraval.com}}/api/companies/{{companyId}}/customers
   body: none
   auth: bearer
 }
@@ -64,7 +64,7 @@ example {
           "email": "shipping@abccorp.com"
         }
       }
-          
+            
     }
   }
   
@@ -117,7 +117,7 @@ example {
           "email": "billing@abccorp.com"
         }
       }
-          
+            
     }
   }
   

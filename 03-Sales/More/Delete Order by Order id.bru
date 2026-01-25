@@ -1,11 +1,11 @@
 meta {
-  name: Delete customer
+  name: Delete Order by Order id
   type: http
-  seq: 9
+  seq: 5
 }
 
 delete {
-  url: {{astraval.com}}/api/companies/2/customers/2
+  url: {{astraval.com}}/api/companies/{{companyId}}/orders/0
   body: none
   auth: bearer
 }
@@ -16,4 +16,5 @@ auth:bearer {
 
 settings {
   encodeUrl: true
+  timeout: 0
 }

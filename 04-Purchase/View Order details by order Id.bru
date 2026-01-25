@@ -1,5 +1,5 @@
 meta {
-  name: View Order details by order Id and company Id
+  name: View Order details by order Id
   type: http
   seq: 4
 }
@@ -12,6 +12,10 @@ get {
 
 auth:bearer {
   token: {{adminToken}}
+}
+
+vars:pre-request {
+  orderId: 7
 }
 
 settings {

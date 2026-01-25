@@ -5,8 +5,8 @@ meta {
 }
 
 put {
-  url: {{astraval.com}}/api/companies/2/items/12
-  body: json
+  url: {{astraval.com}}/api/companies/{{companyId}}/items/15
+  body: multipartForm
   auth: bearer
 }
 
@@ -16,12 +16,70 @@ auth:bearer {
 
 body:json {
   {
-  "purchasePrice": 75000.00
+  "purchasePrice": 110
   }
   
+}
+
+body:multipart-form {
+  item: '''
+    {
+      "itemName": "Basic Laptop"
+     }
+  '''
 }
 
 settings {
   encodeUrl: true
   timeout: 0
+}
+
+example {
+  name: Full Update
+  
+  request: {
+    url: {{astraval.com}}/api/companies/{{companyId}}/items/15
+    method: PUT
+    mode: multipartForm
+    body:json: {
+      {
+      "purchasePrice": 110
+      }
+                  
+    }
+  
+    body:multipart-form: {
+      item: '''
+        {
+          "itemName": "Updated Item Name",
+          "itemType": "PRODUCT",
+          "unit": "PCS",
+          "salesPrice": 150.00,
+          "salesDescription": "Updated sales description",
+          "preferredCustomerId": 1,
+          "purchasePrice": 100.00,
+          "purchaseDescription": "Updated purchase description",
+          "preferredVendorId": 2,
+          "hsnCode": "1234",
+          "taxRate": 18.0,
+          "isActive": true
+        }
+      '''
+      file: @file(Files\item1.webp) @contentType(image/webp)
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
 }

@@ -37,6 +37,8 @@ script:post-response {
       jsonData.responseData.token.length > 0
   ) {
       bru.setGlobalEnvVar('adminToken', jsonData.responseData.token);
+      bru.setGlobalEnvVar('companyId', jsonData.responseData.companyId);
+      bru.setGlobalEnvVar('userId', jsonData.responseData.userId);
   }
 }
 

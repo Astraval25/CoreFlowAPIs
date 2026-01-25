@@ -5,7 +5,7 @@ meta {
 }
 
 put {
-  url: {{astraval.com}}/api/companies/1/customers
+  url: {{astraval.com}}/api/companies/{{companyId}}/customers
   body: none
   auth: bearer
 }
@@ -23,7 +23,7 @@ example {
   name: full update
   
   request: {
-    url: {{astraval.com}}/api/companies/2/vendors/2
+    url: {{astraval.com}}/api/companies/{{companyId}}/vendors/2
     method: PUT
     mode: json
     headers: {
@@ -64,7 +64,7 @@ example {
           "email": "shipping@abccorp.com"
         }
       }
-            
+                    
     }
   }
   
@@ -87,7 +87,7 @@ example {
   name: shipping address is same as billing address
   
   request: {
-    url: {{astraval.com}}/api/companies/1/customers/3
+    url: {{astraval.com}}/api/companies/{{companyId}}/customers/3
     method: PUT
     mode: json
     headers: {
@@ -117,7 +117,7 @@ example {
           "email": "billing@abccorp.com"
         }
       }
-            
+                    
     }
   }
   
@@ -140,7 +140,7 @@ example {
   name: shipping address is different to billing address
   
   request: {
-    url: {{astraval.com}}/api/companies/4/vendors/3
+    url: {{astraval.com}}/api/companies/{{companyId}}/vendors/3
     method: PUT
     mode: json
     headers: {
@@ -181,7 +181,7 @@ example {
           "email": "billing@abccorp.com"
         }
       }
-            
+                    
     }
   }
   

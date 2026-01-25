@@ -5,7 +5,7 @@ meta {
 }
 
 patch {
-  url: {{astraval.com}}/api/companies/2/customers/4/activate
+  url: {{astraval.com}}/api/companies/{{companyId}}/customers/4/activate
   body: none
   auth: bearer
 }
@@ -16,4 +16,5 @@ auth:bearer {
 
 settings {
   encodeUrl: true
+  timeout: 0
 }

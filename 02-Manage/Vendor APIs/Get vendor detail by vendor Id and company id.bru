@@ -5,7 +5,7 @@ meta {
 }
 
 get {
-  url: {{astraval.com}}/api/companies/4/vendors/3
+  url: {{astraval.com}}/api/companies/{{companyId}}/vendors/3
   body: none
   auth: bearer
 }
@@ -16,6 +16,7 @@ auth:bearer {
 
 settings {
   encodeUrl: true
+  timeout: 0
 }
 
 docs {

@@ -1,11 +1,11 @@
 meta {
-  name: Activate Order by Order id
+  name: Delete vendor
   type: http
-  seq: 7
+  seq: 9
 }
 
-put {
-  url: {{astraval.com}}/api/companies/3/sales/orders/8/activate
+delete {
+  url: {{astraval.com}}/api/companies/{{companyId}}/customers/2
   body: none
   auth: bearer
 }

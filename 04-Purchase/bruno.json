@@ -1,6 +1,6 @@
 {
   "version": "1",
-  "name": "04-Purchase",
+  "name": "03-Sales",
   "type": "collection",
   "ignore": [
     "node_modules",

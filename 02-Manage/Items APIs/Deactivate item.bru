@@ -5,7 +5,7 @@ meta {
 }
 
 patch {
-  url: {{astraval.com}}/api/companies/2/items/1/deactivate
+  url: {{astraval.com}}/api/companies/{{companyId}}/items/1/deactivate
   body: json
   auth: bearer
 }
@@ -16,4 +16,5 @@ auth:bearer {
 
 settings {
   encodeUrl: true
+  timeout: 0
 }
