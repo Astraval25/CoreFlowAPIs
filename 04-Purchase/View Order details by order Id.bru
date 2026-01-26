@@ -5,7 +5,7 @@ meta {
 }
 
 get {
-  url: {{astraval.com}}/api/companies/{{companyId}}/orders/{{orderId}}
+  url: {{astraval.com}}/api/companies/{{companyId}}/orders/20
   body: none
   auth: bearer
 }
@@ -15,7 +15,7 @@ auth:bearer {
 }
 
 vars:pre-request {
-  orderId: 7
+  orderId: 20
 }
 
 settings {
