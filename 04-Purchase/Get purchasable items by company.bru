@@ -1,0 +1,20 @@
+meta {
+  name: Get purchasable items by company
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{astraval.com}}/api/companies/{{companyId}}/items/purchasable
+  body: text
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
