@@ -1,0 +1,16 @@
+meta {
+  name: Update Sales Order to CONFIRM
+  type: http
+  seq: 8
+}
+
+put {
+  url: {{astraval.com}}/api/companies/{{companyId}}/orders/20/confirm
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

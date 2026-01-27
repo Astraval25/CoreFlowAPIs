@@ -1,0 +1,20 @@
+meta {
+  name: List All Snapshot by Company
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{astraval.com}}/api/companies/{{companyId}}/sales/orders/snapshot
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

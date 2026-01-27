@@ -1,0 +1,25 @@
+meta {
+  name: View snapshot details by order Id and company copy
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{astraval.com}}/api/companies/{{companyId}}/orders/snapshot?orderReference=20&status=OPEN
+  body: none
+  auth: bearer
+}
+
+params:query {
+  orderReference: 20
+  status: OPEN
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
