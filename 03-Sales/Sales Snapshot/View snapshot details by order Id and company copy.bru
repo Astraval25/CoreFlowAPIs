@@ -1,18 +1,18 @@
 meta {
   name: View snapshot details by order Id and company copy
   type: http
-  seq: 3
+  seq: 1
 }
 
 get {
-  url: {{astraval.com}}/api/companies/{{companyId}}/orders/snapshot?orderReference=20&status=OPEN
+  url: {{astraval.com}}/api/companies/{{companyId}}/orders/snapshot?orderReference=25&status=VIEWED
   body: none
   auth: bearer
 }
 
 params:query {
-  orderReference: 20
-  status: OPEN
+  orderReference: 25
+  status: VIEWED
 }
 
 auth:bearer {

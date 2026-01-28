@@ -1,0 +1,16 @@
+meta {
+  name: status VIEWED
+  type: http
+  seq: 8
+}
+
+put {
+  url: {{astraval.com}}/api/companies/3/orders/25/viewed
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

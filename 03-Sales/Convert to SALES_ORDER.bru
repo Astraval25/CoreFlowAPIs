@@ -1,11 +1,11 @@
 meta {
-  name: Update Sales Order to CONFIRM
+  name: Convert to SALES_ORDER
   type: http
   seq: 8
 }
 
 put {
-  url: {{astraval.com}}/api/companies/{{companyId}}/orders/20/confirm
+  url: {{astraval.com}}/api/companies/3/orders/25/sales-order
   body: none
   auth: inherit
 }
