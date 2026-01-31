@@ -1,0 +1,136 @@
+meta {
+  name: Create Payment
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{astraval.com}}/api/companies/{{companyId}}/buyer-payments
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+body:json {
+  {
+    "vendorId": 3,
+    "paymentDetails": {
+      "amount": 15000.00,
+      "paymentDate": "2024-01-15T10:30:00",
+      "modeOfPayment": "BANK_TRANSFER",
+      "referenceNumber": "TXN123456789",
+      "paymentRemarks": "Payment for January orders",
+      "orderAllocations": [
+        {
+          "orderId": 3,
+          "amountApplied": 100.00,
+          "allocationDate": "2024-01-15T10:30:00",
+          "allocationRemarks": "Full payment for order ORD-012024-001"
+        },
+        {
+          "orderId": 4,
+          "amountApplied": 100.00,
+          "allocationDate": "2024-01-15T10:30:00",
+          "allocationRemarks": "Partial payment for order ORD-012024-002"
+        }
+      ]
+    }
+  }
+              
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+example {
+  name: Full request
+  
+  request: {
+    url: {{astraval.com}}/api/companies/{{companyId}}/buyer-payments
+    method: POST
+    mode: json
+    body:json: {
+      {
+        "vendorId": 3,
+        "paymentDetails": {
+          "amount": 15000.00,
+          "paymentDate": "2024-01-15T10:30:00",
+          "modeOfPayment": "BANK_TRANSFER",
+          "referenceNumber": "TXN123456789",
+          "paymentRemarks": "Payment for January orders",
+          "orderAllocations": [
+            {
+              "orderId": 3,
+              "amountApplied": 100.00,
+              "allocationDate": "2024-01-15T10:30:00",
+              "allocationRemarks": "Full payment for order ORD-012024-001"
+            },
+            {
+              "orderId": 4,
+              "amountApplied": 100.00,
+              "allocationDate": "2024-01-15T10:30:00",
+              "allocationRemarks": "Partial payment for order ORD-012024-002"
+            }
+          ]
+        }
+      }
+                      
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Record expenses
+  
+  request: {
+    url: {{astraval.com}}/api/companies/{{companyId}}/buyer-payments
+    method: POST
+    mode: json
+    body:json: {
+      {
+        "vendorId": 3,
+        "paymentDetails": {
+          "amount": 1000.00,
+          "paymentDate": "2024-01-15T10:30:00",
+          "modeOfPayment": "CASH",
+          "referenceNumber": "TXN123456789",
+          "paymentRemarks": "Advance Amount"
+        }
+      }
+            
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

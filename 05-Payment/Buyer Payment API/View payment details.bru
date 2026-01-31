@@ -1,0 +1,20 @@
+meta {
+  name: View payment details
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{astraval.com}}/api/companies/{{companyId}}/payments/37
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

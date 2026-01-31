@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: {{astraval.com}}/api/companies/3/sales/orders
+  url: {{astraval.com}}/api/companies/{{companyId}}/sales/orders
   body: json
   auth: bearer
 }
@@ -16,7 +16,7 @@ auth:bearer {
 
 body:json {
   {
-    "customerId": 1,
+    "customerId": 3,
     "taxAmount": 0.0,
     "discountAmount": 0,
     "deliveryCharge": 50.0,
@@ -69,7 +69,7 @@ example {
           }
         ]
       }
-                                                                  
+                                                                    
     }
   }
   
@@ -117,7 +117,7 @@ example {
           }
         ]
       }
-                                      
+                                        
     }
   }
   

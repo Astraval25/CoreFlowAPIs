@@ -12,8 +12,8 @@ post {
 
 body:json {
   {
-      "email":"admin@astraval.com",
-      "password":"test2025@TEST"
+      "email":"karthikeyan.kac@gmail.com",
+      "password":"1234567890"
   }
 }
 
@@ -114,6 +114,36 @@ example {
     url: {{astraval.com}}/api/auth/login
     method: POST
     mode: none
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: karthikeyan testing Login
+  
+  request: {
+    url: {{astraval.com}}/api/auth/login
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "email":"karthikeyan.kac@gmail.com",
+          "password":"1234567890"
+      }
+    }
   }
   
   response: {

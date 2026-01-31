@@ -1,0 +1,20 @@
+meta {
+  name: List payer payment Summary
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{astraval.com}}/api/companies/{{companyId}}/payer/payments
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
