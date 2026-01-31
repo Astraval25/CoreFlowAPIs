@@ -1,11 +1,11 @@
 meta {
-  name: View payment details
+  name: Delete payment allocation
   type: http
-  seq: 4
+  seq: 6
 }
 
-get {
-  url: {{astraval.com}}/api/companies/{{companyId}}/payments/36
+delete {
+  url: {{astraval.com}}/api/companies/{{companyId}}/buyer-payments/36/allocations/30
   body: none
   auth: bearer
 }

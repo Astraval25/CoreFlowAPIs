@@ -1,0 +1,47 @@
+meta {
+  name: Update Payment
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{astraval.com}}/api/companies/{{companyId}}/buyer-payments/36
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+body:json {
+  {
+    "amount": 500.50,
+    "paymentDate": "2024-01-20T14:30:00",
+    "modeOfPayment": "CASH",
+    "referenceNumber": "UTR123456789",
+    "paymentRemarks": "Updated payment for January invoices - corrected amount",
+    "orderAllocations": [
+      {
+        "paymentOrderAllocationId": 26,
+        "orderId": 3,
+        "amountApplied": 50.00,
+        "allocationDate": "2024-01-20T14:30:00",
+        "allocationRemarks": "Full payment for order ORD-012024-001"
+      },
+      {
+        "paymentOrderAllocationId": 27,
+        "orderId": 4,
+        "amountApplied": 60.50,
+        "allocationDate": "2024-01-20T14:30:00",
+        "allocationRemarks": "Partial payment for order ORD-012024-002"
+      }
+    ]
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
