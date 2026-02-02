@@ -1,0 +1,20 @@
+meta {
+  name: Get order items (new logic)
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{astraval.com}}/api/companies/{{companyId}}/vendors/123/order-items
+  body: text
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
