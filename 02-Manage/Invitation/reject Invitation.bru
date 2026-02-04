@@ -1,0 +1,24 @@
+meta {
+  name: reject Invitation
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{astraval.com}}/api/companies/{{companyId}}/invitations/{{invitationCode}}/reject
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+vars:pre-request {
+  invitationCode: 9d75a6b3-61f3-4f98-a668-fca2d312bed0
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

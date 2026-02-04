@@ -1,11 +1,11 @@
 meta {
-  name: get vendor un-paid orders
+  name: Seller payments summary
   type: http
-  seq: 4
+  seq: 1
 }
 
 get {
-  url: {{astraval.com}}/api/companies/{{companyId}}/vendor/3/unpaid-orders
+  url: {{astraval.com}}/api/companies/{{companyId}}/seller-payments/summary
   body: none
   auth: bearer
 }

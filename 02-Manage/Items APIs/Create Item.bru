@@ -36,13 +36,15 @@ body:json {
 body:multipart-form {
   item: '''
     {
-      "itemName": "Comp 2 Item 2",
-      "itemType": "GOODS",
-      "unit": "KG",
-      "salesDescription": "laptop for Development",
-      "salesPrice": 100.00,
-      "hsnCode": "8471",
-      "taxRate": 18.0
+        "itemName": "T-Shirt",
+        "itemType": "GOODS",
+        "unit": "PCS",
+        "salesDescription": "Soft cotton tee",
+        "baseSalesPrice": 299.00,
+        "purchaseDescription": "Bulk purchase",
+        "basePurchasePrice": 250.00,
+        "hsnCode": "610910",
+        "taxRate": 18
     }
   ''' @contentType(Text)
   file: @file(Files\item2.jpg) @contentType(File)
@@ -64,7 +66,7 @@ example {
       {
         "itemName": "Laptop"
       }
-                                                                                      
+                                                                                            
     }
   }
   
@@ -104,7 +106,7 @@ example {
         "hsnCode": "84713000",
         "taxRate": 18.00
       }
-                                                  
+                                                        
     }
   }
   

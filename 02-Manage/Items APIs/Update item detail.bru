@@ -5,7 +5,7 @@ meta {
 }
 
 put {
-  url: {{astraval.com}}/api/companies/{{companyId}}/items/15
+  url: {{astraval.com}}/api/companies/{{companyId}}/items/6
   body: multipartForm
   auth: bearer
 }
@@ -24,8 +24,9 @@ body:json {
 body:multipart-form {
   item: '''
     {
-      "itemName": "Basic Laptop"
-     }
+        "baseSalesPrice": 199.00,
+        "basePurchasePrice": 150.00
+    }
   '''
 }
 
@@ -45,7 +46,7 @@ example {
       {
       "purchasePrice": 110
       }
-                  
+                      
     }
   
     body:multipart-form: {

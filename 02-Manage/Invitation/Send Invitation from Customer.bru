@@ -1,11 +1,11 @@
 meta {
-  name: get vendor un-paid orders
+  name: Send Invitation from Customer
   type: http
-  seq: 4
+  seq: 1
 }
 
-get {
-  url: {{astraval.com}}/api/companies/{{companyId}}/vendor/3/unpaid-orders
+post {
+  url: {{astraval.com}}/api/companies/{{companyId}}/invitations/customers/2
   body: none
   auth: bearer
 }

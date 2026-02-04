@@ -1,0 +1,88 @@
+meta {
+  name: accespt Invitation
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{astraval.com}}/api/companies/{{companyId}}/invitations/{{invitationCode}}/accept
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+body:json {
+  {
+    "selectedCustomerId":4
+  }
+}
+
+vars:pre-request {
+  invitationCode: 9d75a6b3-61f3-4f98-a668-fca2d312bed0
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+example {
+  name: accept by Vendor
+  
+  request: {
+    url: {{astraval.com}}/api/companies/{{companyId}}/invitations/{{invitationCode}}/accept
+    method: POST
+    mode: json
+    body:json: {
+      {
+        "selectedVendorId":2
+      }
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: accept by Customer
+  
+  request: {
+    url: {{astraval.com}}/api/companies/{{companyId}}/invitations/{{invitationCode}}/accept
+    method: POST
+    mode: json
+    body:json: {
+      {
+        "selectedCustomerId":2
+      }
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
