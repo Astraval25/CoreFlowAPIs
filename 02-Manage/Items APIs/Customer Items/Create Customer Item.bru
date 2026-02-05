@@ -1,0 +1,29 @@
+meta {
+  name: Create Customer Item
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{astraval.com}}/api/companies/{{companyId}}/customers/4/items
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+body:json {
+  {
+    "itemId": 1,
+    "salesPrice": 290.00,
+    "salesDescription": "Special price for this customer"
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

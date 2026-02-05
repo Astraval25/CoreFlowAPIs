@@ -7,13 +7,17 @@ meta {
 post {
   url: {{astraval.com}}/api/auth/login
   body: json
-  auth: inherit
+  auth: bearer
+}
+
+auth:bearer {
+  token: 
 }
 
 body:json {
   {
       "email":"admin@astraval.com",
-      "password":"cyber7020@CF"
+      "password":"test2025@TEST"
   }
 }
 

@@ -1,0 +1,20 @@
+meta {
+  name: De-activate Customer Item
+  type: http
+  seq: 3
+}
+
+patch {
+  url: {{astraval.com}}/api/companies/{{companyId}}/customers/4/items/1/deactivate
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -1,12 +1,12 @@
 meta {
-  name: Get item detail by item id and company id
+  name: get Customer Item Detail
   type: http
-  seq: 2
+  seq: 8
 }
 
 get {
-  url: {{astraval.com}}/api/companies/{{companyId}}/items/1
-  body: text
+  url: {{astraval.com}}/api/companies/{{companyId}}/customers/4/items/1
+  body: json
   auth: bearer
 }
 

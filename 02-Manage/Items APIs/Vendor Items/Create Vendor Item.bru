@@ -1,0 +1,29 @@
+meta {
+  name: Create Vendor Item
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{astraval.com}}/api/companies/{{companyId}}/vendors/4/items
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+body:json {
+  {
+    "itemId": 2,
+    "purchasePrice": 430.00,
+    "purchaseDescription": "Special price for this customer"
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

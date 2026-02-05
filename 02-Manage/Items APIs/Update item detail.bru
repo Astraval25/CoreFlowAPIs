@@ -46,24 +46,21 @@ example {
       {
       "purchasePrice": 110
       }
-                      
+                        
     }
   
     body:multipart-form: {
       item: '''
         {
-          "itemName": "Updated Item Name",
-          "itemType": "PRODUCT",
-          "unit": "PCS",
-          "salesPrice": 150.00,
-          "salesDescription": "Updated sales description",
-          "preferredCustomerId": 1,
-          "purchasePrice": 100.00,
-          "purchaseDescription": "Updated purchase description",
-          "preferredVendorId": 2,
-          "hsnCode": "1234",
-          "taxRate": 18.0,
-          "isActive": true
+            "itemName": "T-Shirt",
+            "itemType": "GOODS",
+            "unit": "PCS",
+            "salesDescription": "Soft cotton tee",
+            "baseSalesPrice": 299.00,
+            "purchaseDescription": "Bulk purchase",
+            "basePurchasePrice": 250.00,
+            "hsnCode": "610910",
+            "taxRate": 18
         }
       '''
       file: @file(Files\item1.webp) @contentType(image/webp)
