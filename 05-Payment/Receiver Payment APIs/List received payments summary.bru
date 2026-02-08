@@ -1,11 +1,11 @@
 meta {
-  name: Seller payments summary
+  name: List received payments summary
   type: http
   seq: 1
 }
 
 get {
-  url: {{astraval.com}}/api/companies/{{companyId}}/seller-payments/summary
+  url: {{astraval.com}}/api/companies/{{companyId}}/payments-received/summary
   body: none
   auth: bearer
 }

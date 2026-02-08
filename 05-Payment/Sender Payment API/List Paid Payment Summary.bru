@@ -1,11 +1,11 @@
 meta {
-  name: List payer payment Summary
+  name: List Paid Payment Summary
   type: http
   seq: 1
 }
 
 get {
-  url: {{astraval.com}}/api/companies/{{companyId}}/payer/payments
+  url: {{astraval.com}}/api/companies/{{companyId}}/payments-sent/summary
   body: none
   auth: bearer
 }

@@ -1,0 +1,33 @@
+meta {
+  name: Update Received Payment
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{astraval.com}}/api/companies/{{companyId}}/payments-received/1
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+body:json {
+  {
+    "customerId": 3,
+    "paymentDetails": {
+      "amount": 200.00,
+      "paymentDate": "2024-01-15T10:30:00",
+      "modeOfPayment": "UPI",
+      "referenceNumber": "T2",
+      "paymentRemarks": "Payment for January orders"
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

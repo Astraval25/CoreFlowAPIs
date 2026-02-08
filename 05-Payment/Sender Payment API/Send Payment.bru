@@ -1,11 +1,11 @@
 meta {
-  name: Create Payment
+  name: Send Payment
   type: http
   seq: 3
 }
 
 post {
-  url: {{astraval.com}}/api/companies/{{companyId}}/buyer-payments
+  url: {{astraval.com}}/api/companies/{{companyId}}/payments-sent
   body: json
   auth: bearer
 }
@@ -16,30 +16,15 @@ auth:bearer {
 
 body:json {
   {
-    "vendorId": 3,
+    "vendorId": 1,
     "paymentDetails": {
-      "amount": 15000.00,
+      "amount": 100.00,
       "paymentDate": "2024-01-15T10:30:00",
-      "modeOfPayment": "BANK_TRANSFER",
-      "referenceNumber": "TXN123456789",
-      "paymentRemarks": "Payment for January orders",
-      "orderAllocations": [
-        {
-          "orderId": 3,
-          "amountApplied": 100.00,
-          "allocationDate": "2024-01-15T10:30:00",
-          "allocationRemarks": "Full payment for order ORD-012024-001"
-        },
-        {
-          "orderId": 4,
-          "amountApplied": 100.00,
-          "allocationDate": "2024-01-15T10:30:00",
-          "allocationRemarks": "Partial payment for order ORD-012024-002"
-        }
-      ]
+      "modeOfPayment": "CASH",
+      "referenceNumber": "T2",
+      "paymentRemarks": "Payment for January orders"
     }
   }
-              
 }
 
 settings {
@@ -79,7 +64,7 @@ example {
           ]
         }
       }
-                            
+                                      
     }
   }
   
@@ -116,7 +101,7 @@ example {
           "paymentRemarks": "Advance Amount"
         }
       }
-                  
+                            
     }
   }
   
