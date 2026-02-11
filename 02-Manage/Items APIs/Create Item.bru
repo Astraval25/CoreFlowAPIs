@@ -36,18 +36,18 @@ body:json {
 body:multipart-form {
   item: '''
     {
-        "itemName": "Item 4",
+        "itemName": "Item 2",
         "itemType": "GOODS",
         "unit": "PCS",
         "salesDescription": "Soft cotton tee",
-        "baseSalesPrice": 410.00,
+        "baseSalesPrice": 210.00,
         "purchaseDescription": "Bulk purchase",
-        "basePurchasePrice": 400.00,
+        "basePurchasePrice": 200.00,
         "hsnCode": "610910",
         "taxRate": 18
     }
   ''' @contentType(Text)
-  file: @file(Files\item1.webp) @contentType(File)
+  file:  @contentType(File)
 }
 
 settings {
@@ -66,7 +66,7 @@ example {
       {
         "itemName": "Laptop"
       }
-                                                                                                  
+                                                                                                    
     }
   }
   
@@ -106,7 +106,7 @@ example {
         "hsnCode": "84713000",
         "taxRate": 18.00
       }
-                                                              
+                                                                
     }
   }
   

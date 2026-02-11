@@ -1,12 +1,12 @@
 meta {
-  name: List All Sales Order by Company Id
+  name: Get sales order items
   type: http
-  seq: 4
+  seq: 8
 }
 
 get {
-  url: {{astraval.com}}/api/companies/1/sales/orders
-  body: none
+  url: {{astraval.com}}/api/companies/{{companyId}}/customers/1/items
+  body: text
   auth: bearer
 }
 

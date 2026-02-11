@@ -1,0 +1,16 @@
+meta {
+  name: status ORDER_INVOICED
+  type: http
+  seq: 11
+}
+
+put {
+  url: {{astraval.com}}/api/companies/{{companyId}}/orders/{{orderId}}/invoiced
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

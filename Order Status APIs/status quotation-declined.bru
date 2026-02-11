@@ -1,0 +1,16 @@
+meta {
+  name: status quotation-declined
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{astraval.com}}/api/companies/3/orders/25/quotation-declined
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
