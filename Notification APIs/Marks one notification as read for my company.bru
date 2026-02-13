@@ -1,0 +1,20 @@
+meta {
+  name: Marks one notification as read for my company
+  type: http
+  seq: 3
+}
+
+patch {
+  url: {{astraval.com}}/api/companies/{{companyId}}/notifications/5/read
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

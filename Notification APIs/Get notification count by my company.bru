@@ -1,0 +1,20 @@
+meta {
+  name: Get notification count by my company
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{astraval.com}}/api/companies/{{companyId}}/notifications/unread-count
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

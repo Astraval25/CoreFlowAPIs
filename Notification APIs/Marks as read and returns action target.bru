@@ -1,0 +1,20 @@
+meta {
+  name: Marks as read and returns action target
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{astraval.com}}/api/companies/{{companyId}}/notifications/5/open
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
