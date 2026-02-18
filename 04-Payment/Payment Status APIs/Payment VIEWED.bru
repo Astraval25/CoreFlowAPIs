@@ -1,0 +1,20 @@
+meta {
+  name: Payment VIEWED
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{astraval.com}}/api/companies/{{companyId}}/payments/5/viewed
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -1,11 +1,11 @@
 meta {
-  name: Send Invitation from Vendor
+  name: Get Invitation Code by Customer
   type: http
-  seq: 2
+  seq: 6
 }
 
-post {
-  url: {{astraval.com}}/api/companies/{{companyId}}/invitations/vendors/2
+get {
+  url: {{astraval.com}}/api/companies/{{companyId}}/invitations/customers/1/code
   body: none
   auth: bearer
 }

@@ -1,0 +1,33 @@
+meta {
+  name: deactivate Advertisement
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{astraval.com}}/api/admin/ads/{adId}/deactivate
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+body:multipart-form {
+  ad: '''
+    {
+      "companyId": 1,
+      "itemId": 1,
+      "placement": "DASHBOARD_ADS",
+      "description": "Big discount this week",
+      "actionUrl": "https://your-site.com/offer"
+    }
+  '''
+  "file ": @file(Files\ads\1.jpg)
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

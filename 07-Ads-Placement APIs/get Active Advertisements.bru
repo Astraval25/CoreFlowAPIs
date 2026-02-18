@@ -1,0 +1,33 @@
+meta {
+  name: get Active Advertisements
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{astraval.com}}/api/ads
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+body:multipart-form {
+  ad: '''
+    {
+      "companyId": 1,
+      "itemId": 1,
+      "placement": "DASHBOARD_ADS",
+      "description": "Big discount this week",
+      "actionUrl": "https://your-site.com/offer"
+    }
+  '''
+  "file ": @file(Files\ads\1.jpg)
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

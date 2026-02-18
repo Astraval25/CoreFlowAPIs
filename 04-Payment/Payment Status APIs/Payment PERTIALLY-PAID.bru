@@ -1,11 +1,11 @@
 meta {
-  name: Send Invitation from Customer
+  name: Payment PERTIALLY-PAID
   type: http
-  seq: 1
+  seq: 5
 }
 
-post {
-  url: {{astraval.com}}/api/companies/{{companyId}}/invitations/customers/2
+put {
+  url: {{astraval.com}}/api/companies/{{companyId}}/payments/5/partially-paid
   body: none
   auth: bearer
 }

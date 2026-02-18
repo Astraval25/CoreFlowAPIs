@@ -1,0 +1,20 @@
+meta {
+  name: Payment REFUND
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{astraval.com}}/api/companies/{{companyId}}/payments/5/refund
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
