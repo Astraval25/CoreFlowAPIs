@@ -1,0 +1,24 @@
+meta {
+  name: Create Payment Proof
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{astraval.com}}/api/companies/{{companyId}}/payments/payment-proof
+  body: multipartForm
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+body:multipart-form {
+  file: @file(E:\workspace\CoreFlow\CoreFlowAPIs\Files\ads\1.jpg)
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

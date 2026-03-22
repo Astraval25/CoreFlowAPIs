@@ -5,9 +5,13 @@ meta {
 }
 
 put {
-  url: {{astraval.com}}/api/companies/{{companyId}}/sales/orders/{{orderId}}
+  url: {{astraval.com}}/api/companies/{{companyId}}/sales/orders/:order_id
   body: json
   auth: bearer
+}
+
+params:path {
+  order_id: 
 }
 
 auth:bearer {
@@ -61,7 +65,7 @@ example {
           }
         ]
       }
-            
+              
     }
   }
   

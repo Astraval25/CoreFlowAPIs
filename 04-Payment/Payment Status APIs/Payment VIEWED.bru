@@ -5,9 +5,13 @@ meta {
 }
 
 put {
-  url: {{astraval.com}}/api/companies/{{companyId}}/payments/5/viewed
+  url: {{astraval.com}}/api/companies/{{companyId}}/payments/:payment_id/viewed
   body: none
   auth: bearer
+}
+
+params:path {
+  payment_id: 
 }
 
 auth:bearer {

@@ -16,15 +16,30 @@ auth:bearer {
 
 body:json {
   {
-    "vendorId": 1,
+    "vendorId": 49,
     "paymentDetails": {
-      "amount": 100.00,
+      "amount": 15000.00,
       "paymentDate": "2024-01-15T10:30:00",
-      "modeOfPayment": "CASH",
-      "referenceNumber": "T2",
-      "paymentRemarks": "Payment for January orders"
+      "modeOfPayment": "BANK_TRANSFER",
+      "referenceNumber": "TXN123456789",
+      "paymentRemarks": "Payment for January orders",
+      "orderAllocations": [
+        {
+          "orderId": 106,
+          "amountApplied": 110.00,
+          "allocationDate": "2024-01-15T10:30:00",
+          "allocationRemarks": "Full payment for order ORD-012024-001"
+        },
+        {
+          "orderId": 104,
+          "amountApplied": 500.00,
+          "allocationDate": "2024-01-15T10:30:00",
+          "allocationRemarks": "Partial payment for order ORD-012024-002"
+        }
+      ]
     }
   }
+                                    
 }
 
 settings {
@@ -64,7 +79,7 @@ example {
           ]
         }
       }
-                                      
+                                          
     }
   }
   
@@ -101,7 +116,7 @@ example {
           "paymentRemarks": "Advance Amount"
         }
       }
-                            
+                                
     }
   }
   

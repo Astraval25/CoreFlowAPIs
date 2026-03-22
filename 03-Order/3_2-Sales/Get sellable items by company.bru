@@ -5,9 +5,13 @@ meta {
 }
 
 get {
-  url: {{astraval.com}}/api/companies/{{companyId}}/customers/1/items/sellable
+  url: {{astraval.com}}/api/companies/{{companyId}}/customers/:customer_id/items/sellable
   body: text
   auth: bearer
+}
+
+params:path {
+  customer_id: 112
 }
 
 auth:bearer {

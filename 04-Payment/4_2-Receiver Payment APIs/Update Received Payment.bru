@@ -4,10 +4,14 @@ meta {
   seq: 4
 }
 
-post {
-  url: {{astraval.com}}/api/companies/{{companyId}}/payments-received/1
+put {
+  url: {{astraval.com}}/api/companies/{{companyId}}/payments-received/:payment_id
   body: json
   auth: bearer
+}
+
+params:path {
+  payment_id: 
 }
 
 auth:bearer {

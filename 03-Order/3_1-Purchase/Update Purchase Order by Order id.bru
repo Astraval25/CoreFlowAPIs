@@ -5,9 +5,13 @@ meta {
 }
 
 put {
-  url: {{astraval.com}}/api/companies/{{companyId}}/sales/orders/{{orderId}}
+  url: {{astraval.com}}/api/companies/{{companyId}}/purchase/orders/:order_id
   body: json
   auth: bearer
+}
+
+params:path {
+  order_id: 
 }
 
 auth:bearer {
@@ -16,7 +20,7 @@ auth:bearer {
 
 body:json {
   {
-    "customerId": 4,
+    "vendorId": 4,
     "taxAmount": 0.0,
     "discountAmount": 0,
     "deliveryCharge": 50.0,

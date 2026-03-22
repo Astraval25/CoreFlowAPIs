@@ -16,13 +16,27 @@ auth:bearer {
 
 body:json {
     {
-      "customerId": 122,
+      "customerId": 112,
       "paymentDetails": {
         "amount": 111.00,
         "paymentDate": "2024-01-15T10:30:00",
         "modeOfPayment": "UPI",
         "referenceNumber": "From bruno",
-        "paymentRemarks": "Payment for January orders"
+        "paymentRemarks": "Payment for January orders",
+        "orderAllocations": [
+          {
+            "orderId": 93,
+            "amountApplied": 110.00,
+            "allocationDate": "2024-01-15T10:30:00",
+            "allocationRemarks": "Full payment for order ORD-012024-001"
+          },
+          {
+            "orderId": 98,
+            "amountApplied": 100.00,
+            "allocationDate": "2024-01-15T10:30:00",
+            "allocationRemarks": "Partial payment for order ORD-012024-002"
+          }
+        ]
       }
     }
 }

@@ -5,9 +5,13 @@ meta {
 }
 
 get {
-  url: {{astraval.com}}/api/companies/{{companyId}}/payments/36
+  url: {{astraval.com}}/api/companies/{{companyId}}/payments/:paymentid
   body: none
   auth: bearer
+}
+
+params:path {
+  paymentid: 61
 }
 
 auth:bearer {

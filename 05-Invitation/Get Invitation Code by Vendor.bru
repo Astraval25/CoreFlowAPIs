@@ -5,9 +5,13 @@ meta {
 }
 
 get {
-  url: {{astraval.com}}/api/companies/{{companyId}}/invitations/vendors/1/code
+  url: {{astraval.com}}/api/companies/{{companyId}}/invitations/vendors/:vendor_id/code
   body: none
   auth: bearer
+}
+
+params:path {
+  vendor_id: 141
 }
 
 auth:bearer {

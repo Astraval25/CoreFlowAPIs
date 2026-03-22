@@ -1,13 +1,17 @@
 meta {
   name: Get purchasable items by company
   type: http
-  seq: 7
+  seq: 6
 }
 
 get {
-  url: {{astraval.com}}/api/companies/{{companyId}}/vendors/3/items/purchasable
+  url: {{astraval.com}}/api/companies/{{companyId}}/vendors/:vendor_id/items/purchasable
   body: text
   auth: bearer
+}
+
+params:path {
+  vendor_id: 49
 }
 
 auth:bearer {

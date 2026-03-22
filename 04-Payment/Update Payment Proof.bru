@@ -1,17 +1,17 @@
 meta {
-  name: View Order details by order Id and company Id
+  name: Update Payment Proof
   type: http
-  seq: 5
+  seq: 11
 }
 
 get {
-  url: {{astraval.com}}/api/companies/{{companyId}}/orders/:orderId
+  url: {{astraval.com}}/api/companies/{{companyId}}/payments-sent/:paymentId/payment-proof
   body: none
   auth: bearer
 }
 
 params:path {
-  orderId: 105
+  paymentId: 
 }
 
 auth:bearer {

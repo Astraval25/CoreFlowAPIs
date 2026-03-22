@@ -5,9 +5,13 @@ meta {
 }
 
 put {
-  url: {{astraval.com}}/api/companies/3/orders/25/sales-order
+  url: {{astraval.com}}/api/companies/{{companyId}}/orders/:order_id/sales-order
   body: none
   auth: inherit
+}
+
+params:path {
+  order_id: 
 }
 
 settings {
