@@ -1,7 +1,7 @@
 meta {
   name: Create New Sales Order
   type: http
-  seq: 3
+  seq: 2
 }
 
 post {
@@ -16,17 +16,23 @@ auth:bearer {
 
 body:json {
   {
-    "customerId": 1,
+    "customerId": 118,
     "taxAmount": 0.0,
     "discountAmount": 0,
     "deliveryCharge": 50.0,
     "hasBill": false,
     "orderItems": [
       {
-        "itemId": 1,
+        "itemId": 5,
         "itemDescription": "Summer Offer",
         "quantity": 3,
         "updatedPrice": 100
+      },
+      {
+        "itemId": 6,
+        "itemDescription": "Summer Offer",
+        "quantity": 2,
+        "updatedPrice": 200
       }
     ]
   }
@@ -69,7 +75,7 @@ example {
           }
         ]
       }
-                                                                            
+                                                                                    
     }
   }
   
@@ -117,7 +123,55 @@ example {
           }
         ]
       }
-                                                
+                                                        
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Create Order (with 2 items)
+  
+  request: {
+    url: {{astraval.com}}/api/companies/{{companyId}}/sales/orders
+    method: POST
+    mode: json
+    body:json: {
+      {
+        "customerId": 118,
+        "taxAmount": 0.0,
+        "discountAmount": 0,
+        "deliveryCharge": 50.0,
+        "hasBill": false,
+        "orderItems": [
+          {
+            "itemId": 5,
+            "itemDescription": "Summer Offer",
+            "quantity": 3,
+            "updatedPrice": 100
+          },
+          {
+            "itemId": 6,
+            "itemDescription": "Summer Offer",
+            "quantity": 1,
+            "updatedPrice": 200
+          }
+        ]
+      }
+        
     }
   }
   

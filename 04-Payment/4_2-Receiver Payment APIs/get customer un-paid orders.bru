@@ -1,13 +1,17 @@
 meta {
   name: get customer un-paid orders
   type: http
-  seq: 5
+  seq: 4
 }
 
 get {
-  url: {{astraval.com}}/api/companies/{{companyId}}/customer/112/unpaid-orders
+  url: {{astraval.com}}/api/companies/{{companyId}}/customer/:customer_id/unpaid-orders
   body: none
   auth: bearer
+}
+
+params:path {
+  customer_id: 118
 }
 
 auth:bearer {

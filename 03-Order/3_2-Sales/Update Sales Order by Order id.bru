@@ -1,7 +1,7 @@
 meta {
   name: Update Sales Order by Order id
   type: http
-  seq: 6
+  seq: 5
 }
 
 put {
@@ -11,7 +11,7 @@ put {
 }
 
 params:path {
-  order_id: 
+  order_id: 123
 }
 
 auth:bearer {
@@ -20,21 +20,27 @@ auth:bearer {
 
 body:json {
   {
-    "customerId": 4,
+    "customerId": 118,
     "taxAmount": 0.0,
     "discountAmount": 0,
     "deliveryCharge": 50.0,
-    "hasBill": false,
+    "hasBill": true,
     "orderItems": [
       {
-        "itemId": 15,
+        "itemId": 5,
         "itemDescription": "Summer Offer",
-        "quantity": 3,
-        "updatedPrice": 105
+        "quantity": 2,
+        "updatedPrice": 100
+      },
+      {
+        "itemId": 7,
+        "itemDescription": "Summer Offer",
+        "quantity": 1,
+        "updatedPrice": 300
       }
     ]
   }
-  
+                  
 }
 
 settings {
@@ -43,7 +49,7 @@ settings {
 }
 
 example {
-  name: Full Update
+  name: Normal Update for (2 item order)
   
   request: {
     url: {{astraval.com}}/api/companies/{{companyId}}/sales/orders/{{orderId}}
@@ -51,21 +57,129 @@ example {
     mode: json
     body:json: {
       {
-        "customerId": 4,
+        "customerId": 118,
         "taxAmount": 0.0,
         "discountAmount": 0,
         "deliveryCharge": 50.0,
-        "hasBill": false,
+        "hasBill": true,
         "orderItems": [
           {
-            "itemId": 15,
+            "itemId": 5,
             "itemDescription": "Summer Offer",
-            "quantity": 3,
-            "updatedPrice": 105
+            "quantity": 2,
+            "updatedPrice": 100
+          },
+          {
+            "itemId": 6,
+            "itemDescription": "Summer Offer",
+            "quantity": 2,
+            "updatedPrice": 200
           }
         ]
       }
-              
+                            
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Add Item (2 item order)
+  
+  request: {
+    url: {{astraval.com}}/api/companies/{{companyId}}/sales/orders/{{orderId}}
+    method: PUT
+    mode: json
+    body:json: {
+      {
+        "customerId": 118,
+        "taxAmount": 0.0,
+        "discountAmount": 0,
+        "deliveryCharge": 50.0,
+        "hasBill": true,
+        "orderItems": [
+          {
+            "itemId": 5,
+            "itemDescription": "Summer Offer",
+            "quantity": 2,
+            "updatedPrice": 100
+          },
+          {
+            "itemId": 6,
+            "itemDescription": "Summer Offer",
+            "quantity": 2,
+            "updatedPrice": 200
+          },
+          {
+            "itemId": 7,
+            "itemDescription": "Summer Offer",
+            "quantity": 1,
+            "updatedPrice": 300
+          }
+        ]
+      }
+                          
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Remove Item from (2 item order)
+  
+  request: {
+    url: {{astraval.com}}/api/companies/{{companyId}}/sales/orders/{{orderId}}
+    method: PUT
+    mode: json
+    body:json: {
+      {
+        "customerId": 118,
+        "taxAmount": 0.0,
+        "discountAmount": 0,
+        "deliveryCharge": 50.0,
+        "hasBill": true,
+        "orderItems": [
+          {
+            "itemId": 5,
+            "itemDescription": "Summer Offer",
+            "quantity": 2,
+            "updatedPrice": 100
+          },
+          {
+            "itemId": 7,
+            "itemDescription": "Summer Offer",
+            "quantity": 1,
+            "updatedPrice": 300
+          }
+        ]
+      }
+                        
     }
   }
   

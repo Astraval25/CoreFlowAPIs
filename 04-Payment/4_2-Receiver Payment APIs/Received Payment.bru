@@ -16,23 +16,23 @@ auth:bearer {
 
 body:json {
     {
-      "customerId": 112,
+      "customerId": 118,
       "paymentDetails": {
-        "amount": 111.00,
+        "amount": 400.00,
         "paymentDate": "2024-01-15T10:30:00",
         "modeOfPayment": "UPI",
         "referenceNumber": "From bruno",
         "paymentRemarks": "Payment for January orders",
         "orderAllocations": [
           {
-            "orderId": 93,
-            "amountApplied": 110.00,
+            "orderId": 123,
+            "amountApplied": 200.00,
             "allocationDate": "2024-01-15T10:30:00",
             "allocationRemarks": "Full payment for order ORD-012024-001"
           },
           {
-            "orderId": 98,
-            "amountApplied": 100.00,
+            "orderId": 124,
+            "amountApplied": 200.00,
             "allocationDate": "2024-01-15T10:30:00",
             "allocationRemarks": "Partial payment for order ORD-012024-002"
           }
@@ -44,4 +44,88 @@ body:json {
 settings {
   encodeUrl: true
   timeout: 0
+}
+
+example {
+  name: Create Payment (with 2 order)
+  
+  request: {
+    url: {{astraval.com}}/api/companies/{{companyId}}/payments-received
+    method: POST
+    mode: json
+    body:json: {
+        {
+          "customerId": 118,
+          "paymentDetails": {
+            "amount": 400.00,
+            "paymentDate": "2024-01-15T10:30:00",
+            "modeOfPayment": "UPI",
+            "referenceNumber": "From bruno",
+            "paymentRemarks": "Payment for January orders",
+            "orderAllocations": [
+              {
+                "orderId": 123,
+                "amountApplied": 200.00,
+                "allocationDate": "2024-01-15T10:30:00",
+                "allocationRemarks": "Full payment for order ORD-012024-001"
+              },
+              {
+                "orderId": 124,
+                "amountApplied": 200.00,
+                "allocationDate": "2024-01-15T10:30:00",
+                "allocationRemarks": "Partial payment for order ORD-012024-002"
+              }
+            ]
+          }
+        }
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Mandatory fields
+  
+  request: {
+    url: {{astraval.com}}/api/companies/{{companyId}}/payments-received
+    method: POST
+    mode: json
+    body:json: {
+        {
+          "customerId": 118,
+          "paymentDetails": {
+            "amount": 400.00,
+            "paymentDate": "2024-01-15T10:30:00",
+            "modeOfPayment": "UPI"
+          }
+        }
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
 }

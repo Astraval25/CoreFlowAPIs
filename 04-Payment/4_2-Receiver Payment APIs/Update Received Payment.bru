@@ -1,7 +1,7 @@
 meta {
   name: Update Received Payment
   type: http
-  seq: 4
+  seq: 5
 }
 
 put {
@@ -11,7 +11,7 @@ put {
 }
 
 params:path {
-  payment_id: 
+  payment_id: 76
 }
 
 auth:bearer {
@@ -19,19 +19,152 @@ auth:bearer {
 }
 
 body:json {
-  {
-    "customerId": 3,
-    "paymentDetails": {
-      "amount": 200.00,
-      "paymentDate": "2024-01-15T10:30:00",
-      "modeOfPayment": "UPI",
-      "referenceNumber": "T2",
-      "paymentRemarks": "Payment for January orders"
+    {
+        "amount": 650.00,
+        "paymentDate": "2024-01-15T10:30:00",
+        "modeOfPayment": "UPI",
+        "referenceNumber": "From bruno",
+        "paymentRemarks": "Payment for January orders",
+        "orderAllocations": [
+          {
+            "paymentOrderAllocationId": 32,
+            "orderId": 123,
+            "amountApplied": 250.00,
+            "allocationDate": "2024-01-15T10:30:00",
+            "allocationRemarks": "Full payment for order ORD-012024-001"
+          },
+          {
+            "paymentOrderAllocationId": 33,
+            "orderId": 124,
+            "amountApplied": 250.00,
+            "allocationDate": "2024-01-15T10:30:00",
+            "allocationRemarks": "Partial payment for order ORD-012024-002"
+          },
+          {
+            "paymentOrderAllocationId": null, // for createing new keep the allocation id null.
+            "orderId": 125,
+            "amountApplied": 150.00,
+            "allocationDate": "2024-01-15T10:30:00",
+            "allocationRemarks": "Partial payment for order ORD-012024-002"
+          }
+        ]
     }
-  }
 }
 
 settings {
   encodeUrl: true
   timeout: 0
+}
+
+example {
+  name: Normal Update for (2 orders payment)
+  
+  request: {
+    url: {{astraval.com}}/api/companies/{{companyId}}/payments-received/:payment_id
+    method: PUT
+    mode: json
+    params:path: {
+      payment_id: 76
+    }
+  
+    body:json: {
+        {
+            "amount": 500.00,
+            "paymentDate": "2024-01-15T10:30:00",
+            "modeOfPayment": "UPI",
+            "referenceNumber": "From bruno",
+            "paymentRemarks": "Payment for January orders",
+            "orderAllocations": [
+              {
+                "paymentOrderAllocationId": 32,
+                "orderId": 123,
+                "amountApplied": 250.00,
+                "allocationDate": "2024-01-15T10:30:00",
+                "allocationRemarks": "Full payment for order ORD-012024-001"
+              },
+              {
+                "paymentOrderAllocationId": 33,
+                "orderId": 124,
+                "amountApplied": 250.00,
+                "allocationDate": "2024-01-15T10:30:00",
+                "allocationRemarks": "Partial payment for order ORD-012024-002"
+              }
+            ]
+        }
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: add order (2 order payment)
+  
+  request: {
+    url: {{astraval.com}}/api/companies/{{companyId}}/payments-received/:payment_id
+    method: PUT
+    mode: json
+    params:path: {
+      payment_id: 76
+    }
+  
+    body:json: {
+        {
+            "amount": 650.00,
+            "paymentDate": "2024-01-15T10:30:00",
+            "modeOfPayment": "UPI",
+            "referenceNumber": "From bruno",
+            "paymentRemarks": "Payment for January orders",
+            "orderAllocations": [
+              {
+                "paymentOrderAllocationId": 32,
+                "orderId": 123,
+                "amountApplied": 250.00,
+                "allocationDate": "2024-01-15T10:30:00",
+                "allocationRemarks": "Full payment for order ORD-012024-001"
+              },
+              {
+                "paymentOrderAllocationId": 33,
+                "orderId": 124,
+                "amountApplied": 250.00,
+                "allocationDate": "2024-01-15T10:30:00",
+                "allocationRemarks": "Partial payment for order ORD-012024-002"
+              },
+              {
+                "paymentOrderAllocationId": null, // for createing new keep the allocation id null.
+                "orderId": 125,
+                "amountApplied": 150.00,
+                "allocationDate": "2024-01-15T10:30:00",
+                "allocationRemarks": "Partial payment for order ORD-012024-002"
+              }
+            ]
+        }
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
 }

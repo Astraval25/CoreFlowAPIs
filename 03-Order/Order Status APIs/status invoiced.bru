@@ -7,11 +7,15 @@ meta {
 put {
   url: {{astraval.com}}/api/companies/{{companyId}}/orders/:order_id/invoiced
   body: none
-  auth: inherit
+  auth: bearer
 }
 
 params:path {
-  order_id: 
+  order_id: 124
+}
+
+auth:bearer {
+  token: {{adminToken}}
 }
 
 settings {
