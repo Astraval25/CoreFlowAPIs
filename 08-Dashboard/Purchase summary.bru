@@ -1,0 +1,25 @@
+meta {
+  name: Purchase summary
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{astraval.com}}/api/companies/{{companyId}}/analytics/purchase/summary?startDate=2025-10-31&endDate=2026-10-31
+  body: text
+  auth: bearer
+}
+
+params:query {
+  startDate: 2025-10-31
+  endDate: 2026-10-31
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -5,9 +5,13 @@ meta {
 }
 
 post {
-  url: {{astraval.com}}/api/companies/{{companyId}}/invitations/{{invitationCode}}/accept
+  url: {{astraval.com}}/api/companies/{{companyId}}/invitations/:invitationCode/accept
   body: json
   auth: bearer
+}
+
+params:path {
+  invitationCode: P89RUC
 }
 
 auth:bearer {
@@ -16,12 +20,12 @@ auth:bearer {
 
 body:json {
   {
-    "selectedVendorId":1
+    "selectedCustomerId": 3
   }
 }
 
 vars:pre-request {
-  invitationCode: PAB3ND
+  invitationCode: 6MM3R3
 }
 
 settings {

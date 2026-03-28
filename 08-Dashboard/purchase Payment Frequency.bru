@@ -1,0 +1,25 @@
+meta {
+  name: purchase Payment Frequency
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{astraval.com}}/api/companies/{{companyId}}/analytics/purchase/payment-frequency?startDate=2025-10-31&endDate=2026-10-31
+  body: text
+  auth: bearer
+}
+
+params:query {
+  startDate: 2025-10-31
+  endDate: 2026-10-31
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -1,0 +1,25 @@
+meta {
+  name: Purchase Order Frequency
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{astraval.com}}/api/companies/{{companyId}}/analytics/purchase/order-frequency?startDate=2000-10-31&endDate=2026-10-31
+  body: text
+  auth: bearer
+}
+
+params:query {
+  startDate: 2000-10-31
+  endDate: 2026-10-31
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -5,9 +5,13 @@ meta {
 }
 
 post {
-  url: {{astraval.com}}/api/companies/{{companyId}}/customers/3/items
+  url: {{astraval.com}}/api/companies/{{companyId}}/customers/:customer_id/items
   body: json
   auth: bearer
+}
+
+params:path {
+  customer_id: 3
 }
 
 auth:bearer {
@@ -17,8 +21,8 @@ auth:bearer {
 body:json {
   {
     "itemId": 3,
-    "salesPrice": 103.00,
-    "salesDescription": "Special price for customer 1"
+    "salesPrice": 300.00,
+    "salesDescription": "New Price"
   }
   
 }
