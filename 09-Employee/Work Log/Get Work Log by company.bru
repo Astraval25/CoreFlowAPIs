@@ -1,0 +1,25 @@
+meta {
+  name: Get Work Log by company
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{astraval.com}}/api/companies/{{companyId}}/modemp/work-logs?from=2026-04-01&to=2026-04-04
+  body: json
+  auth: bearer
+}
+
+params:query {
+  from: 2026-04-01
+  to: 2026-04-04
+}
+
+auth:bearer {
+  token: {{commonToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

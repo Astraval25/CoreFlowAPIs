@@ -1,0 +1,28 @@
+meta {
+  name: Calculate Salary
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{astraval.com}}/api/companies/{{companyId}}/modemp/salary/calculate
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+body:json {
+  {
+    "fromDate": "2026-03-01",
+    "toDate": "2026-04-15",
+    "employeeId": 2
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

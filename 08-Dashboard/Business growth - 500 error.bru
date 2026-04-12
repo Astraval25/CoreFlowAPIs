@@ -1,0 +1,25 @@
+meta {
+  name: Business growth - 500 error
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{astraval.com}}/api/companies/{{companyId}}/analytics/dashboard/business-growth?startDate=2026-01-01&endDate=2026-03-29
+  body: text
+  auth: bearer
+}
+
+params:query {
+  startDate: 2026-01-01
+  endDate: 2026-03-29
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

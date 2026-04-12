@@ -1,0 +1,25 @@
+meta {
+  name: Get Leave Logs by Company Date Range
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{astraval.com}}/api/companies/{{companyId}}/modemp/leave-logs?from=2026-04-01&to=2026-04-10
+  body: json
+  auth: bearer
+}
+
+params:query {
+  from: 2026-04-01
+  to: 2026-04-10
+}
+
+auth:bearer {
+  token: {{commonToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

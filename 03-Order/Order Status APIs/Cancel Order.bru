@@ -1,0 +1,24 @@
+meta {
+  name: Cancel Order
+  type: http
+  seq: 9
+}
+
+put {
+  url: {{astraval.com}}/api/companies/{{companyId}}/orders/:order_id/cancel-order
+  body: none
+  auth: bearer
+}
+
+params:path {
+  order_id: 1
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

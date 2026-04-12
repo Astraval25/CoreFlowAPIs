@@ -1,0 +1,29 @@
+meta {
+  name: Get Work Logs by Employee Date Range
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{astraval.com}}/api/companies/{{companyId}}/modemp/work-logs/employee/:employeeId?from=2026-04-01&to=2026-04-04
+  body: json
+  auth: bearer
+}
+
+params:query {
+  from: 2026-04-01
+  to: 2026-04-04
+}
+
+params:path {
+  employeeId: 2
+}
+
+auth:bearer {
+  token: {{commonToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

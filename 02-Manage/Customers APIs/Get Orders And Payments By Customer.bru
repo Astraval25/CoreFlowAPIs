@@ -1,0 +1,24 @@
+meta {
+  name: Get Orders And Payments By Customer
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{astraval.com}}/api/companies/{{companyId}}/customers/:customerId/orders-payments
+  body: none
+  auth: bearer
+}
+
+params:path {
+  customerId: 1
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

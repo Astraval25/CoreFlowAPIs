@@ -1,7 +1,7 @@
 meta {
   name: login
   type: http
-  seq: 1
+  seq: 2
 }
 
 post {
@@ -18,7 +18,7 @@ body:json {
   {
       "email":"admin@astraval.com",
   //     "email":"karthikeyan.aas@gmail.com",
-      "password":"1234567890"
+      "password":"Admin@AV@2025"
   }
 }
 
@@ -42,6 +42,7 @@ script:post-response {
       jsonData.responseData.token.length > 0
   ) {
       bru.setGlobalEnvVar('adminToken', jsonData.responseData.token);
+      bru.setGlobalEnvVar('commonToken', jsonData.responseData.token);
       bru.setGlobalEnvVar('companyId', jsonData.responseData.companyId);
       bru.setGlobalEnvVar('userId', jsonData.responseData.userId);
   }

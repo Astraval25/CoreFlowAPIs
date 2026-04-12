@@ -1,0 +1,20 @@
+meta {
+  name: Get Work Definitions
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{astraval.com}}/api/companies/{{companyId}}/modemp/work-definitions
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{commonToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

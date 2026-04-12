@@ -1,0 +1,20 @@
+meta {
+  name: Get Pending Work Logs
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{astraval.com}}/api/companies/{{companyId}}/modemp/work-logs/pending
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{commonToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

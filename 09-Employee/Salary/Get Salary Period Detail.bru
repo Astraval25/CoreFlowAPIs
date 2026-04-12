@@ -1,0 +1,24 @@
+meta {
+  name: Get Salary Period Detail
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{astraval.com}}/api/companies/{{companyId}}/modemp/salary/periods/:salaryPeriodId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  salaryPeriodId: 1
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

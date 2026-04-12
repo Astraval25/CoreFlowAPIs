@@ -1,0 +1,30 @@
+meta {
+  name: Review Leave Log
+  type: http
+  seq: 5
+}
+
+patch {
+  url: {{astraval.com}}/api/companies/{{companyId}}/modemp/leave-logs/:logId/review
+  body: json
+  auth: bearer
+}
+
+params:path {
+  logId: 1
+}
+
+auth:bearer {
+  token: {{commonToken}}
+}
+
+body:json {
+  {
+    "status": "APPROVED" // `PENDING`, `APPROVED`, `REJECTED`
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

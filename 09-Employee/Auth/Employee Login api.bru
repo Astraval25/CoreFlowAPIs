@@ -1,0 +1,51 @@
+meta {
+  name: Employee Login api
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{astraval.com}}/api/auth/employee/login
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{commonToken}}
+}
+
+body:json {
+  {
+      "username":"rahul",
+      "password":"Rahul@123"
+  }
+}
+
+script:post-response {
+  // Extract token from response and set as global variable if present
+  let jsonData;
+  try {
+      jsonData = res.getBody();
+  } catch (e) {
+      jsonData = {};
+  }
+  
+  if (
+      jsonData &&
+      jsonData.responseData &&
+      typeof jsonData.responseData.token === 'string' &&
+      jsonData.responseData.token.length > 0
+  ) {
+      bru.setGlobalEnvVar('companyId', jsonData.responseData.companyId);
+      bru.setGlobalEnvVar('userId', jsonData.responseData.userId);
+    
+      bru.setGlobalEnvVar('employeeToken', jsonData.responseData.token);
+      bru.setGlobalEnvVar('commonToken', jsonData.responseData.token);
+      bru.setGlobalEnvVar('employeeId', jsonData.responseData.userId);
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

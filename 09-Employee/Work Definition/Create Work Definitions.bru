@@ -1,0 +1,30 @@
+meta {
+  name: Create Work Definitions
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{astraval.com}}/api/companies/{{companyId}}/modemp/work-definitions
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+body:json {
+  {
+    "workName": "Sorting",
+    "workCode": "SORT",
+    "description": "Raw bundle Sorting",
+    "ratePerUnit": 40,
+    "unit": "KG"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -1,0 +1,24 @@
+meta {
+  name: Get Employee By ID
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{astraval.com}}/api/companies/{{companyId}}/modemp/employees/:employeeId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  employeeId: 1
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

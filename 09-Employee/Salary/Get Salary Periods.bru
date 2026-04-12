@@ -1,0 +1,24 @@
+meta {
+  name: Get Salary Periods
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{astraval.com}}/api/companies/{{companyId}}/modemp/salary/periods?period=202604
+  body: json
+  auth: bearer
+}
+
+params:query {
+  period: 202604
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

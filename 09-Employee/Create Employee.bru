@@ -1,0 +1,105 @@
+meta {
+  name: Create Employee
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{astraval.com}}/api/companies/{{companyId}}/modemp/employees
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+body:json {
+  {
+    "employeeCode": "EMP-002",
+    "employeeName": "Ram Kumar",
+    "phone": "9876543210",
+    "email": "ram@astraval.com",
+    "designation": "Sorting team",
+    "joinedDt": "2026-01-10",
+    "salaryType": "WORK_BASED",
+    "monthlyAmount": null
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+example {
+  name: Monthly salary example
+  
+  request: {
+    url: {{astraval.com}}/api/companies/{{companyId}}/employees
+    method: POST
+    mode: json
+    body:json: {
+      {
+        "employeeCode": "EMP-001",
+        "employeeName": "Ravi Kumar",
+        "phone": "9876543210",
+        "email": "ravi@astraval.com",
+        "designation": "Machine Operator",
+        "joinedDt": "2026-01-10",
+        "salaryType": "MONTHLY",
+        "monthlyAmount": 25000
+      }
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: work based salary
+  
+  request: {
+    url: {{astraval.com}}/api/companies/{{companyId}}/employees
+    method: POST
+    mode: json
+    body:json: {
+      {
+        "employeeCode": "EMP-002",
+        "employeeName": "Ram Kumar",
+        "phone": "9876543210",
+        "email": "ram@astraval.com",
+        "designation": "Sorting team",
+        "joinedDt": "2026-01-10",
+        "salaryType": "WORK_BASED",
+        "monthlyAmount": null
+      }
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

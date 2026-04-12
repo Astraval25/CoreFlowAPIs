@@ -1,0 +1,31 @@
+meta {
+  name: Enable portal access for employee
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{astraval.com}}/api/companies/{{companyId}}/modemp/employees/:employeeId/portal-user
+  body: json
+  auth: bearer
+}
+
+params:path {
+  employeeId: 1
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+body:json {
+  {
+    "username": "ravi.emp",
+    "password": "1234567890"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

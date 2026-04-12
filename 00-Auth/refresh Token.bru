@@ -1,7 +1,7 @@
 meta {
   name: refresh Token
   type: http
-  seq: 3
+  seq: 4
 }
 
 post {
@@ -12,10 +12,11 @@ post {
 
 body:json {
   {
-      "refreshToken":"{{vault:json-web-token}}"
+      "refreshToken":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwicm9sZSI6IkFETSIsImNvbXBhbnlJZHMiOlsxXSwiZGVmYXVsdENvbXAiOlsxLCJjb21wYW55IDEiXSwiaWF0IjoxNzc1Mzg3ODc1LCJleHAiOjE3NzUzOTE0NzUsImp0aSI6Ijc1YzA0N2M2LTE4Y2MtNDQ4Mi1iOTdjLTg2MjMyMDdmYzg0OCJ9.oN-DvEkPoobYE2lyHKWulEi7chys0KimcpbdJOsZtLE0SWlp2GkR30SAIYmULYDAFmeRWBinJXSpYs0Pgut_fQ"
   }
 }
 
 settings {
   encodeUrl: true
+  timeout: 0
 }

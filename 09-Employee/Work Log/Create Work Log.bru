@@ -1,0 +1,30 @@
+meta {
+  name: Create Work Log
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{astraval.com}}/api/companies/{{companyId}}/modemp/work-logs
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{commonToken}}
+}
+
+body:json {
+  {
+    "employeeId": 3,
+    "workDefId": 1,
+    "logDate": "2026-04-14",
+    "quantity": 60.0,
+    "employeeRemarks": "Completed morning shift"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

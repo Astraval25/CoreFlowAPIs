@@ -1,0 +1,24 @@
+meta {
+  name: Download Salary Slip (PDF)
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{astraval.com}}/api/companies/{{companyId}}/modemp/salary/periods/:salaryPeriodId/slip
+  body: json
+  auth: bearer
+}
+
+params:path {
+  salaryPeriodId: 2
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

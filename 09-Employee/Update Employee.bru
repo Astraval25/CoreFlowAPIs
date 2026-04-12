@@ -1,0 +1,34 @@
+meta {
+  name: Update Employee
+  type: http
+  seq: 6
+}
+
+put {
+  url: {{astraval.com}}/api/companies/{{companyId}}/modemp/employees/:employeeId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  employeeId: 1
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+body:json {
+  {
+    "employeeName": "Ravi Kumar S",
+    "phone": "9988776655",
+    "email": "ravi.s@company.com",
+    "designation": "Senior Operator",
+    "joinedDt": "2026-01-10"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

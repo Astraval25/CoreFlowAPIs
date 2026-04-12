@@ -1,0 +1,24 @@
+meta {
+  name: Get Rate History
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{astraval.com}}/api/companies/{{companyId}}/modemp/work-definitions/:workDefId//rate-history
+  body: json
+  auth: bearer
+}
+
+params:path {
+  workDefId: 1
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

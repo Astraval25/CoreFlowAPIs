@@ -1,0 +1,34 @@
+meta {
+  name: Activate Employee
+  type: http
+  seq: 8
+}
+
+patch {
+  url: {{astraval.com}}/api/companies/{{companyId}}/modemp/employees/:employeeId/activate
+  body: json
+  auth: bearer
+}
+
+params:path {
+  employeeId: 2
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+body:json {
+  {
+    "employeeName": "Jeeva S",
+    "email": "jeeva.s@astraval.com",
+    "phone": "0987654321",
+    "salaryType": "WORK_BASED",
+    "joinDate": "2026-04-01"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

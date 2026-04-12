@@ -1,0 +1,24 @@
+meta {
+  name: Get Active Employees
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{astraval.com}}/api/companies/{{companyId}}/modemp/employees?activeOnly=true
+  body: json
+  auth: bearer
+}
+
+params:query {
+  activeOnly: true
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

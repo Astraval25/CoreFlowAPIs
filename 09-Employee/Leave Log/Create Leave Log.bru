@@ -1,0 +1,30 @@
+meta {
+  name: Create Leave Log
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{astraval.com}}/api/companies/{{companyId}}/modemp/leave-logs
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{commonToken}}
+}
+
+body:json {
+  {
+    "employeeId": 3,
+    "leaveDate": "2026-04-21",
+    "leaveType": "FULL_DAY", // `FULL_DAY`, `HALF_DAY`
+    "leaveCategory": "SICK", // `CASUAL`, `SICK`, `UNPAID`, `LOP`
+    "reason": "Fever"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

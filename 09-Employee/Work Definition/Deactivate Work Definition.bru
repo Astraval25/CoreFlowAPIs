@@ -1,0 +1,24 @@
+meta {
+  name: Deactivate Work Definition
+  type: http
+  seq: 6
+}
+
+patch {
+  url: {{astraval.com}}/api/companies/{{companyId}}/modemp/work-definitions/:workDefId/deactivate
+  body: json
+  auth: bearer
+}
+
+params:path {
+  workDefId: 1
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

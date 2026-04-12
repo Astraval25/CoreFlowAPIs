@@ -1,0 +1,33 @@
+meta {
+  name: UpdateWork Definitions Details
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{astraval.com}}/api/companies/{{companyId}}/modemp/work-definitions/:workDefId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  workDefId: 1
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+body:json {
+  {
+    "workName": "Cutting - Grade A",
+    "description": "Updated spec for grade A",
+    "ratePerUnit": 53,
+    "unit": "KG"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

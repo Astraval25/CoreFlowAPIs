@@ -1,0 +1,24 @@
+meta {
+  name: Get Orders And Payments By Vendor
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{astraval.com}}/api/companies/{{companyId}}/vendors/:vendorsId/orders-payments
+  body: none
+  auth: bearer
+}
+
+params:path {
+  vendorsId: 2
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

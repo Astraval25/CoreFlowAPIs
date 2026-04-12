@@ -1,0 +1,43 @@
+meta {
+  name: Get Salary Config History
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{astraval.com}}/api/companies/{{companyId}}/modemp/employees/:employeeId/salary-config/history
+  body: json
+  auth: bearer
+}
+
+params:path {
+  employeeId: 1
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+body:json {
+  {
+    "salaryType": "WORK_BASED",
+    "monthlyAmount": null,
+    "effectiveFrom": "2026-04-01"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  ```json
+  {
+    "salaryType": "MONTHLY",
+    "monthlyAmount": 28000,
+    "effectiveFrom": "2026-04-01"
+  }
+  ```
+  
+}

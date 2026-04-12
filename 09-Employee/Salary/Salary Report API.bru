@@ -1,0 +1,25 @@
+meta {
+  name: Salary Report API
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{astraval.com}}/api/companies/{{companyId}}/modemp/salary/report?from=2026-04-01&to=2026-04-30
+  body: json
+  auth: bearer
+}
+
+params:query {
+  from: 2026-04-01
+  to: 2026-04-30
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

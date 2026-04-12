@@ -1,0 +1,31 @@
+meta {
+  name: Review Work Log
+  type: http
+  seq: 5
+}
+
+patch {
+  url: {{astraval.com}}/api/companies/{{companyId}}/modemp/work-logs/:logId/review
+  body: json
+  auth: bearer
+}
+
+params:path {
+  logId: 1
+}
+
+auth:bearer {
+  token: {{commonToken}}
+}
+
+body:json {
+  {
+    "status": "APPROVED", // `PENDING`, `APPROVED`, `REJECTED`
+    "adminRemarks": "Validated quantity"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
